@@ -1,0 +1,24 @@
+{
+  "name": "@eeacms/volto-metadata-block",
+  "version": "0.1.0",
+  "description": "Volto Metadata Block",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "./node_modules/.bin/prettier --single-quote --check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "prettier:fix": "./node_modules/.bin/prettier --single-quote --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "lint": "./node_modules/eslint/bin/eslint.js --max-warnings=0 'src/**/*.{js,jsx}'",
+    "lint:fix": "./node_modules/eslint/bin/eslint.js --fix 'src/**/*.{js,jsx}'"
+  },
+  "author": "European Environment Agency: IDM2 A-Team",
+  "license": "MIT",
+  "dependencies": {
+    '@eeacms/volto-widgets-view': "github:eea/volto-widgets-view#0.2.2"
+  },
+  "devDependencies": {
+    "babel-plugin-istanbul": "6.0.0",
+    "eslint": "7.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "prettier": "2.0.5"
+  }
+}
