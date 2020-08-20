@@ -1,4 +1,10 @@
 export const getWidget = (id, field) => {
+  if (id === 'title') {
+    return 'title';
+  }
+  if (id === 'description') {
+    return 'description';
+  }
   if (id === 'subjects') {
     return 'tags';
   }

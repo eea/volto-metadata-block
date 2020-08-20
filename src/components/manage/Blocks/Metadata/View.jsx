@@ -2,9 +2,10 @@ import React from 'react';
 import { widgets } from '~/config';
 import { useSelector } from 'react-redux';
 import { FormStateContext } from '@plone/volto/components/manage/Form/FormContext';
+import './less/public.less';
 
 export const ViewMetadataBlock = (props) => {
-  const { data } = props;
+  const { data } = props.data;
   const { views } = widgets;
   const initialFormData = useSelector((state) => state?.content?.data || {});
   let metadata = { ...initialFormData };

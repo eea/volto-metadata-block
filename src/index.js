@@ -13,7 +13,7 @@ const applyConfig = (config) => {
     restricted: false,
     mostUsed: false,
     blockHasOwnFocusManagement: false,
-    sidebarTab: 1,
+    sidebarTab: 0,
     security: {
       addPermission: [],
       view: [],
