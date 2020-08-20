@@ -42,6 +42,10 @@ Metadata Block [Volto](https://github.com/plone/volto#volto) add-on that enables
 
 See [DEVELOP.md](docs/DEVELOP.md).
 
+## See also
+
+* [volto-slate-metadata-mentions](https://github.com/eea/volto-slate-metadata-mentions)
+
 
 ## Copyright and license
 
