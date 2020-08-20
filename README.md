@@ -29,9 +29,10 @@ Metadata Block [Volto](https://github.com/plone/volto#volto) add-on that enables
     ```
 
 1. Install new add-ons and restart Volto:
-
+    ```
     $ yarn
     $ yarn start
+    ```
 
 1. Go to http://localhost:3000
 
