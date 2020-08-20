@@ -1,5 +1,5 @@
 # volto-metadata-block
-[![Release](https://img.shields.io/github/v/release/eea/volto-metadata-block)](https://github.com/eea/volto-metadata-block/releases)
+[![Releases](https://img.shields.io/github/v/release/eea/volto-metadata-block?cache=1)](https://github.com/eea/volto-metadata-block/releases)
 
 Metadata Block [Volto](https://github.com/plone/volto#volto) add-on that enables Document metadata insertion within the Blocks area.
 
