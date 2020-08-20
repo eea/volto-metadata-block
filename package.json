@@ -12,9 +12,7 @@
   },
   "author": "European Environment Agency: IDM2 A-Team",
   "license": "MIT",
-  "dependencies": {
-    '@eeacms/volto-widgets-view': "github:eea/volto-widgets-view#0.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-plugin-istanbul": "6.0.0",
     "eslint": "7.3.1",
