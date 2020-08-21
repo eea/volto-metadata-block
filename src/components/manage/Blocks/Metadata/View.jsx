@@ -18,9 +18,17 @@ export const ViewMetadataBlock = (props) => {
     metadata = { ...formData };
   }
 
+  if (!data?.id) {
+    return '';
+  }
+
   let output = metadata[data.id];
   let Widget = views?.getWidget(data);
-  let className = 'block metadata ' + data?.id;
 
-  return Widget ? <Widget value={output} className={className} /> : output;
+  if (!Widget) {
+    return '';
+  }
+
+  let className = 'block metadata ' + data.id;
+  return <Widget value={output} className={className} />;
 };

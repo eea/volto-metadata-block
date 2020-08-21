@@ -23,8 +23,8 @@ Metadata Block [Volto](https://github.com/plone/volto#volto) add-on that enables
 
     "dependencies": {
         "@plone/volto": "github:eea/volto#7.8.2-beta.2",
-        "@eeacms/volto-widgets-view": "github:eea/volto-widgets-view#0.2.3",
-        "@eeacms/volto-metadata-block": "github:eea/volto-metadata-block#0.2.0"
+        "@eeacms/volto-widgets-view": "github:eea/volto-widgets-view#0.2.4",
+        "@eeacms/volto-metadata-block": "github:eea/volto-metadata-block#0.2.1"
     }
     ```
 
@@ -40,7 +40,7 @@ Metadata Block [Volto](https://github.com/plone/volto#volto) add-on that enables
 
 ## How to contribute
 
-See [DEVELOP.md](docs/DEVELOP.md).
+See [DEVELOP.md](DEVELOP.md).
 
 ## See also
 
@@ -52,7 +52,7 @@ See [DEVELOP.md](docs/DEVELOP.md).
 The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.
 
-See [LICENSE.md](docs/LICENSE.md) for details.
+See [LICENSE.md](LICENSE.md) for details.
 
 ## Funding
 

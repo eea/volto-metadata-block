@@ -3,8 +3,12 @@
   "version": "0.2.0",
   "description": "Volto Metadata Block",
   "main": "src/index.js",
+  "devDependencies": {
+    "release-it": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "release-it",
+    "bootstrap": "./bootstrap"
   },
   "author": "European Environment Agency: IDM2 A-Team",
   "license": "MIT"
