@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-metadata-block",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Volto Metadata Block",
   "main": "src/index.js",
   "devDependencies": {
@@ -11,5 +11,18 @@
     "bootstrap": "./bootstrap"
   },
   "author": "European Environment Agency: IDM2 A-Team",
-  "license": "MIT"
+  "license": "MIT",
+  "homepage": "https://github.com/eea/volto-metadata-block",
+  "keywords": [
+    "volto-addon",
+    "volto-block",
+    "volto-metadata",
+    "volto",
+    "plone",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:eea/volto-metadata-block.git"
+  }
 }
