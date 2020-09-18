@@ -3,7 +3,6 @@ import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { SelectMetadataBlock } from './Select';
 import { Field } from '@plone/volto/components';
-import { useFormStateContext } from '@plone/volto/components/manage/Form/FormContext';
 
 export const EditMetadataBlock = (props) => {
   const {
@@ -13,14 +12,10 @@ export const EditMetadataBlock = (props) => {
     data,
     onChangeBlock,
     onChangeField,
+    properties,
   } = props;
   const [metadata, setMetadata] = useState(data?.data?.id);
   const schema = useSelector((state) => state?.schema?.schema || {});
-  const { properties } = schema;
-
-  const context = useFormStateContext();
-  const { contextData } = context;
-  const { formData } = contextData;
 
   const onMetadataSelect = React.useCallback(
     (event, select) => {
@@ -31,7 +26,7 @@ export const EditMetadataBlock = (props) => {
     [block, data, onChangeBlock],
   );
 
-  const field = properties ? properties[metadata] : {};
+  const field = schema.properties ? schema.properties[metadata] : {};
   const required = schema?.required?.includes(metadata);
 
   return (
@@ -40,14 +35,13 @@ export const EditMetadataBlock = (props) => {
         <Field
           {...field}
           id={metadata}
-          value={formData[metadata]}
+          value={properties[metadata]}
           required={required}
           onChange={(id, value) => {
             onChangeField(id, value);
           }}
           key={metadata}
           block={block}
-          error={contextData.errors[metadata]}
         />
       ) : (
         <SelectMetadataBlock

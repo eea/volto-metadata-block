@@ -1,7 +1,6 @@
 import React from 'react';
 import { widgets } from '~/config';
 import { useSelector } from 'react-redux';
-import { FormStateContext } from '@plone/volto/components/manage/Form/FormContext';
 import './less/public.less';
 
 export const ViewMetadataBlock = (props) => {
@@ -10,12 +9,9 @@ export const ViewMetadataBlock = (props) => {
   const initialFormData = useSelector((state) => state?.content?.data || {});
   let metadata = { ...initialFormData };
 
-  // Get data from FormContext
-  const context = React.useContext(FormStateContext);
-  if (context) {
-    const { contextData } = context;
-    const { formData } = contextData;
-    metadata = { ...formData };
+  const { properties } = props;
+  if (properties) {
+    metadata = { ...properties };
   }
 
   if (!data?.id) {
@@ -24,6 +20,10 @@ export const ViewMetadataBlock = (props) => {
 
   let output = metadata[data.id];
   let Widget = views?.getWidget(data);
+  if (!output && props.data.placeholder) {
+    Widget = views?.default;
+    output = props.data.placeholder;
+  }
 
   if (!Widget) {
     return '';

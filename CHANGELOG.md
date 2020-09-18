@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+
+- Remove FormContext dependency
+
 ## 0.2.1
 
 - Fix view when no metadata was selected

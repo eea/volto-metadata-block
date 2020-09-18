@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-metadata-block",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Volto Metadata Block",
   "main": "src/index.js",
   "devDependencies": {
