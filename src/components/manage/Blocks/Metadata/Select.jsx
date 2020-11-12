@@ -1,9 +1,7 @@
 import React from 'react';
-import { Select, Message } from 'semantic-ui-react';
+import { Select } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import { getWidget } from './utils';
-import { Icon } from '@plone/volto/components';
-import iconSVG from '@plone/volto/icons/connector.svg';
 
 export const SelectMetadataBlock = (props) => {
   // Get Object metadata from global state
