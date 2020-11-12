@@ -8,7 +8,7 @@
   },
   "scripts": {
     "release": "release-it",
-    "bootstrap": "./bootstrap"
+    "bootstrap": "node bootstrap"
   },
   "author": "European Environment Agency: IDM2 A-Team",
   "license": "MIT",
