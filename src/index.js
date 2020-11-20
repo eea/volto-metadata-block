@@ -1,8 +1,13 @@
 import { EditMetadataBlock } from './components';
 import { ViewMetadataBlock } from './components';
 import iconSVG from '@plone/volto/icons/connector.svg';
+import installWidgetsView from '@eeacms/volto-widgets-view';
 
 const applyConfig = (config) => {
+  if (!config.widgets.view) {
+    config = installWidgetsView(config);
+  }
+
   config.blocks.blocksConfig.metadata = {
     id: 'metadata',
     title: 'Metadata',
