@@ -85,15 +85,11 @@ pipeline {
                   sh '''docker run -d --name="$BUILD_TAG-plone" -e SITE="Plone" -e PROFILES="profile-plone.restapi:blocks" plone fg'''
                   sh '''docker run -i --name="$BUILD_TAG-cypress" --link $BUILD_TAG-plone:plone -e NAMESPACE="$NAMESPACE" -e DEPENDENCIES="$DEPENDENCIES" -e GIT_NAME=$GIT_NAME -e GIT_BRANCH="$BRANCH_NAME" -e GIT_CHANGE_ID="$CHANGE_ID" eeacms/volto-test cypress'''
                   sh '''mkdir -p cypress-reports'''
-                  sh '''docker cp $BUILD_TAG-cypress:/opt/frontend/my-volto-project/src/addons/$GIT_NAME/cypress/screenshots cypress-reports/'''
                   sh '''docker cp $BUILD_TAG-cypress:/opt/frontend/my-volto-project/src/addons/$GIT_NAME/cypress/videos cypress-reports/'''
                   stash name: "cypress-reports", includes: "cypress-reports/**/*"
-                  archiveArtifacts artifacts: 'cypress-reports/screenshots/**/*', fingerprint: true
                   archiveArtifacts artifacts: 'cypress-reports/videos/*.mp4', fingerprint: true
                 } finally {
-                  sh '''docker stop $BUILD_TAG-plone'''
-                  sh '''docker rm -v $BUILD_TAG-plone'''
-                  sh '''docker rm -v $BUILD_TAG-cypress'''
+                  sh '''echo "$(docker stop $BUILD_TAG-plone; docker rm -v $BUILD_TAG-plone; docker rm -v $BUILD_TAG-cypress)" '''
                 }
               }
             }
