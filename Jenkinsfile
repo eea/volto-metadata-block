@@ -35,11 +35,11 @@ pipeline {
       }
     }
 
-    stage('Tests') {
+    stage('Unit Tests') {
       steps {
         parallel(
 
-          "Unit tests": {
+          "Jest": {
             node(label: 'docker') {
               script {
                 try {
@@ -66,9 +66,17 @@ pipeline {
                 }
               }
             }
-          },
+          }
 
-          "Integration tests": {
+        )
+      }
+    }
+
+    stage('Integration tests') {
+      steps {
+        parallel(
+
+          "Cypress": {
             node(label: 'docker') {
               script {
                 try {
@@ -84,7 +92,8 @@ pipeline {
                   archiveArtifacts artifacts: 'cypress-reports/videos/*.mp4', fingerprint: true
                 } finally {
                   sh '''docker stop $BUILD_TAG-plone'''
-                  sh '''docker rm -v $BUILD_TAG-plone $BUILD_TAG-cypress'''
+                  sh '''docker rm -v $BUILD_TAG-plone'''
+                  sh '''docker rm -v $BUILD_TAG-cypress'''
                 }
               }
             }
