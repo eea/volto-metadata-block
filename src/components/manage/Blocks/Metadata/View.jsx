@@ -1,11 +1,11 @@
 import React from 'react';
-import { widgets } from '~/config';
+import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import './less/public.less';
 
 export const ViewMetadataBlock = (props) => {
   const { data } = props.data;
-  const { views } = widgets;
+  const { views } = config.widgets;
   const initialFormData = useSelector((state) => state?.content?.data || {});
   let metadata = { ...initialFormData };
 
