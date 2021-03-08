@@ -18,6 +18,9 @@
     "type": "git",
     "url": "git@github.com:eea/volto-metadata-block.git"
   },
+  "addons": [
+    "@eeacms/volto-widgets-view"
+  ],
   "dependencies": {
     "@eeacms/volto-widgets-view": "^2.0.0"
   },
