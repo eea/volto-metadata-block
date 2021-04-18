@@ -37,19 +37,18 @@ export const SelectMetadata = (props) => {
 export const SelectMetadataBlock = SelectMetadata;
 
 export const SelectMetadataField = (props) => {
-  const { id, value, onChange } = props;
-  // (event, select) => {
-  //   const { value } = select;
-  //   onChangeBlock(block, { ...data, data: value });
-  //   setMetadata(value.id);
-  // },
+  const { id, value = null, onChange } = props;
+  console.log('value', value);
 
   return (
     <FormFieldWrapper {...props}>
       <SelectMetadata
-        value={value}
-        onChange={(event, { value }) => {
-          onChange(id, value);
+        value={value?.id}
+        onChange={(event, { value, options }) => {
+          onChange(id, {
+            ...value,
+            title: options.find(({ key }) => key === value.id).text,
+          });
         }}
       />
     </FormFieldWrapper>

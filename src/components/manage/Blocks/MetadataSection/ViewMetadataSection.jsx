@@ -3,17 +3,15 @@ import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import '@eeacms/volto-metadata-block/less/public.less';
 
-const ViewMetadataSectionBlock = (props) => {
-  const { data } = props.data;
+const Field = (props) => {
+  const { data, properties, showLabel } = props;
   const { views } = config.widgets;
   const initialFormData = useSelector((state) => state?.content?.data || {});
   let metadata = { ...initialFormData };
 
-  const { properties } = props;
   if (properties) {
     metadata = { ...properties };
   }
-
   if (!data?.id) {
     return '';
   }
@@ -30,7 +28,23 @@ const ViewMetadataSectionBlock = (props) => {
   }
 
   let className = 'block metadata ' + data.id;
-  return <Widget value={output} className={className} />;
+  return (
+    <>
+      {showLabel ? data?.title : ''}
+      <Widget value={output} className={className} />
+    </>
+  );
+};
+
+const ViewMetadataSectionBlock = (props) => {
+  const { data } = props;
+  const { fields } = data;
+
+  return fields?.length
+    ? fields.map(({ field, showLabel }, i) => (
+        <Field key={i} {...props} showLabel={showLabel} data={field} />
+      ))
+    : '';
 };
 
 export default ViewMetadataSectionBlock;
