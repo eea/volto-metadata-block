@@ -25,17 +25,9 @@ const messages = defineMessages({
     id: 'Stripe alternate rows with color',
     defaultMessage: 'Stripe alternate rows with color',
   },
-  styling: {
-    id: 'Styling',
-    defaultMessage: 'Styling',
-  },
   defaultFieldset: {
     id: 'Default',
     defaultMessage: 'Default',
-  },
-  dataFile: {
-    id: 'Data file',
-    defaultMessage: 'Data file',
   },
 });
 
