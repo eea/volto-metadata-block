@@ -65,7 +65,7 @@ export const SelectMetadataField = (props) => {
       block={block}
       title={title}
       choices={choices}
-      value={value.id}
+      value={value?.id}
       onChange={(id, value) => {
         onChange(id, fields[value]);
       }}
