@@ -76,7 +76,7 @@ const MetadataSectionSchema = {
     },
   },
 
-  required: ['url'],
+  required: ['fields'],
 };
 
 export const TableSchema = ({ intl }) => ({
