@@ -1,10 +1,9 @@
 import React from 'react';
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
-
 import '@eeacms/volto-metadata-block/less/public.less';
 
-export const ViewMetadataBlock = (props) => {
+const ViewMetadataSectionBlock = (props) => {
   const { data } = props.data;
   const { views } = config.widgets;
   const initialFormData = useSelector((state) => state?.content?.data || {});
@@ -33,3 +32,5 @@ export const ViewMetadataBlock = (props) => {
   let className = 'block metadata ' + data.id;
   return <Widget value={output} className={className} />;
 };
+
+export default ViewMetadataSectionBlock;

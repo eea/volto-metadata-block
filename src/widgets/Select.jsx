@@ -1,9 +1,10 @@
 import React from 'react';
 import { Select } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
-import { getWidget } from './utils';
+import { getWidget } from '@eeacms/volto-metadata-block/utils';
+import { FormFieldWrapper } from '@plone/volto/components';
 
-export const SelectMetadataBlock = (props) => {
+export const SelectMetadata = (props) => {
   // Get Object metadata from global state
   const properties = useSelector(
     (state) => state?.schema?.schema?.properties || {},
@@ -30,5 +31,27 @@ export const SelectMetadataBlock = (props) => {
       placeholder="Select metadata"
       options={vocabulary}
     />
+  );
+};
+
+export const SelectMetadataBlock = SelectMetadata;
+
+export const SelectMetadataField = (props) => {
+  const { id, value, onChange } = props;
+  // (event, select) => {
+  //   const { value } = select;
+  //   onChangeBlock(block, { ...data, data: value });
+  //   setMetadata(value.id);
+  // },
+
+  return (
+    <FormFieldWrapper {...props}>
+      <SelectMetadata
+        value={value}
+        onChange={(event, { value }) => {
+          onChange(id, value);
+        }}
+      />
+    </FormFieldWrapper>
   );
 };
