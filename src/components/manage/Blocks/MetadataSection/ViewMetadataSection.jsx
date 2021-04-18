@@ -1,6 +1,7 @@
 import React from 'react';
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
+import { Table } from 'semantic-ui-react';
 import '@eeacms/volto-metadata-block/less/public.less';
 
 const Field = (props) => {
@@ -37,14 +38,49 @@ const Field = (props) => {
 };
 
 const ViewMetadataSectionBlock = (props) => {
+  const variation = props.data.variation || 'default';
+  const ViewComponent =
+    config.blocks.blocksConfig.metadataSection.variations[variation].view;
+
+  return <ViewComponent {...props} />;
+};
+
+export const MetadataSectionListingView = (props) => {
   const { data } = props;
-  const { fields } = data;
+  const { fields = [] } = data;
 
   return fields?.length
     ? fields.map(({ field, showLabel }, i) => (
         <Field key={i} {...props} showLabel={showLabel} data={field} />
       ))
     : '';
+};
+
+export const MetadataSectionTableView = (props) => {
+  const { data = {} } = props;
+  const { table = {}, fields = [] } = data;
+
+  return (
+    <Table
+      fixed={table.fixed}
+      compact={table.compact}
+      basic={table.basic ? 'very' : false}
+      celled={table.celled}
+      inverted={table.inverted}
+      striped={table.striped}
+    >
+      <Table.Body>
+        {fields.map(({ field, showLabel }, i) => (
+          <Table.Row>
+            <Table.HeaderCell>{field.title}</Table.HeaderCell>
+            <Table.Cell>
+              <Field key={i} {...props} showLabel={false} data={field} />
+            </Table.Cell>
+          </Table.Row>
+        ))}
+      </Table.Body>
+    </Table>
+  );
 };
 
 export default ViewMetadataSectionBlock;

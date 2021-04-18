@@ -3,8 +3,11 @@ import {
   ViewMetadataBlock,
   EditMetadataSectionBlock,
   ViewMetadataSectionBlock,
+  MetadataSectionListingView,
+  MetadataSectionTableView,
 } from './components';
 import { SelectMetadataField } from './widgets';
+import { addTableField } from './components/manage/Blocks/MetadataSection/variations';
 
 import iconSVG from '@plone/volto/icons/connector.svg';
 
@@ -42,6 +45,17 @@ const applyConfig = (config) => {
     security: {
       addPermission: [],
       view: [],
+    },
+    variations: {
+      default: {
+        label: 'Simple list',
+        view: MetadataSectionListingView,
+      },
+      table: {
+        label: 'Table',
+        view: MetadataSectionTableView,
+        schemaEnhancer: addTableField,
+      },
     },
   };
 
