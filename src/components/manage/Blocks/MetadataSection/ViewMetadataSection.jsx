@@ -76,7 +76,7 @@ export const MetadataSectionTableView = (props) => {
 
           return hasValue ? (
             <Table.Row>
-              <Table.HeaderCell>{field.title}</Table.HeaderCell>
+              <Table.HeaderCell width={1}>{field.title}</Table.HeaderCell>
               <Table.Cell>
                 <Field key={i} {...props} showLabel={false} data={field} />
               </Table.Cell>
