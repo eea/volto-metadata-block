@@ -46,17 +46,20 @@ const applyConfig = (config) => {
       addPermission: [],
       view: [],
     },
-    variations: {
-      default: {
-        label: 'Simple list',
+    variations: [
+      {
+        id: 'default',
+        isDefault: true,
+        title: 'Simple list',
         view: MetadataSectionListingView,
       },
-      table: {
-        label: 'Table',
+      {
+        id: 'table',
+        title: 'Table',
         view: MetadataSectionTableView,
         schemaEnhancer: addTableField,
       },
-    },
+    ],
   };
 
   return config;

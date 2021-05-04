@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Table } from 'semantic-ui-react';
 import '@eeacms/volto-metadata-block/less/public.less';
 import { isEmpty } from 'lodash';
+import { withBlockExtensions } from '@plone/volto/helpers';
 
 const Field = (props) => {
   const { data, properties = {}, showLabel } = props;
@@ -35,13 +36,12 @@ const Field = (props) => {
   );
 };
 
-const ViewMetadataSectionBlock = (props) => {
-  const variation = props.data.variation || 'default';
-  const ViewComponent =
-    config.blocks.blocksConfig.metadataSection.variations[variation].view;
+const ViewMetadataSectionBlock = withBlockExtensions((props) => {
+  const { variation } = props;
+  const ViewComponent = variation.view;
 
   return <ViewComponent {...props} />;
-};
+});
 
 export const MetadataSectionListingView = (props) => {
   const { data } = props;
