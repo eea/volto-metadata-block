@@ -13,16 +13,14 @@ export const EditMetadataBlock = (props) => {
     onChangeBlock,
     onChangeField,
     properties,
-    metadata
+    metadata,
   } = props;
   const [metadata_id, setMetadata_id] = useState(data?.data?.id);
   const schema = useSelector((state) => state?.schema?.schema || {});
-  let metadata_element = {}
-  metadata ? (
-    metadata_element = { ...metadata }
-  ):(
-    metadata_element = { ...properties }
-  )
+  let metadata_element = {};
+  metadata
+    ? (metadata_element = { ...metadata })
+    : (metadata_element = { ...properties });
 
   const onMetadataSelect = React.useCallback(
     (event, select) => {

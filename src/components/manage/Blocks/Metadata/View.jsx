@@ -10,11 +10,9 @@ export const ViewMetadataBlock = (props) => {
   let metadata_element = { ...initialFormData };
 
   const { properties, metadata } = props;
-  metadata ? (
-    metadata_element = { ...metadata }
-    ):(
-      metadata_element = { ...properties }
-    )
+  metadata
+    ? (metadata_element = { ...metadata })
+    : (metadata_element = { ...properties });
 
   if (!data?.id) {
     return '';
