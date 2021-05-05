@@ -13,34 +13,39 @@ export const EditMetadataBlock = (props) => {
     onChangeBlock,
     onChangeField,
     properties,
+    metadata,
   } = props;
-  const [metadata, setMetadata] = useState(data?.data?.id);
+  const [metadata_id, setMetadata_id] = useState(data?.data?.id);
   const schema = useSelector((state) => state?.schema?.schema || {});
+  let metadata_element = {};
+  metadata
+    ? (metadata_element = { ...metadata })
+    : (metadata_element = { ...properties });
 
   const onMetadataSelect = React.useCallback(
     (event, select) => {
       const { value } = select;
       onChangeBlock(block, { ...data, data: value });
-      setMetadata(value.id);
+      setMetadata_id(value.id);
     },
     [block, data, onChangeBlock],
   );
 
-  const field = schema.properties ? schema.properties[metadata] : {};
-  const required = schema?.required?.includes(metadata);
+  const field = schema.properties ? schema.properties[metadata_id] : {};
+  const required = schema?.required?.includes(metadata_id);
 
   return (
     <div className={cx('block metadata', { selected: selected })}>
       {field ? (
         <Field
           {...field}
-          id={metadata}
-          value={properties[metadata]}
+          id={metadata_id}
+          value={metadata_element[metadata_id]}
           required={required}
           onChange={(id, value) => {
             onChangeField(id, value);
           }}
-          key={metadata}
+          key={metadata_id}
           block={block}
         />
       ) : (
