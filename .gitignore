@@ -1,5 +1,7 @@
 .vscode/
 .history
+.eslintrc.js
+project
 logs
 *.log
 npm-debug.log*
