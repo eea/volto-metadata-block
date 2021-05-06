@@ -1,5 +1,7 @@
 .vscode/
 .history
+.eslintrc.js
+project
 logs
 *.log
 npm-debug.log*
@@ -16,3 +18,4 @@ videos
 .env.development.local
 .env.test.local
 .env.production.local
+*~

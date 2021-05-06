@@ -1,7 +1,8 @@
 import React from 'react';
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
-import './less/public.less';
+
+import '@eeacms/volto-metadata-block/less/public.less';
 
 export const ViewMetadataBlock = (props) => {
   const { data } = props.data;

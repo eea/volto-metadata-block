@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
-import { SelectMetadataBlock } from './Select';
 import { Field } from '@plone/volto/components';
+
+import { SelectMetadataBlock } from '@eeacms/volto-metadata-block/widgets';
 
 export const EditMetadataBlock = (props) => {
   const {
