@@ -28,6 +28,7 @@ export const SelectMetadata = (props) => {
     <Dropdown
       {...props}
       value={props.value}
+      selection
       search
       placeholder="Select metadata"
       options={vocabulary}
