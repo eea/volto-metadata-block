@@ -28,7 +28,7 @@
    ],
 
    "dependencies": {
-       "@eeacms/volto-metadata-block": "^1.0.0"
+       "@eeacms/volto-metadata-block": "^3.0.0"
    }
    ```
 
