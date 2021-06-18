@@ -22,7 +22,7 @@
     "@eeacms/volto-widgets-view"
   ],
   "dependencies": {
-    "@eeacms/volto-widgets-view": "^2.0.0"
+    "@eeacms/volto-widgets-view": ">=2.1.2"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.9.5",
