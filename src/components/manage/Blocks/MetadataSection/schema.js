@@ -3,7 +3,11 @@ import messages from './i18n';
 const FieldSchema = {
   title: 'Field',
   fieldsets: [
-    { id: 'default', title: 'Default', fields: ['field', 'showLabel'] },
+    {
+      id: 'default',
+      title: 'Default',
+      fields: ['field', 'showLabel', 'hideInView'],
+    },
   ],
   properties: {
     field: {
@@ -12,6 +16,10 @@ const FieldSchema = {
     },
     showLabel: {
       title: 'Show label?',
+      type: 'boolean',
+    },
+    hideInView: {
+      title: 'Hide in view page?',
       type: 'boolean',
     },
   },
