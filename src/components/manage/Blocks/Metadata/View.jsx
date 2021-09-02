@@ -1,7 +1,7 @@
 import React from 'react';
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
-
+import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
 import '@eeacms/volto-metadata-block/less/public.less';
 
 export const ViewMetadataBlock = (props) => {
@@ -31,5 +31,9 @@ export const ViewMetadataBlock = (props) => {
   }
 
   let className = 'block metadata ' + data.id;
-  return <Widget value={output} className={className} />;
+  return (
+    <ErrorBoundary name={data.id}>
+      <Widget value={output} className={className} />
+    </ErrorBoundary>
+  );
 };

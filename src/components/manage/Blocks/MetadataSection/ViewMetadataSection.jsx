@@ -2,6 +2,7 @@ import React from 'react';
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import { Table } from 'semantic-ui-react';
+import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
 import '@eeacms/volto-metadata-block/less/public.less';
 import { isEmpty } from 'lodash';
 import { withBlockExtensions } from '@plone/volto/helpers';
@@ -29,10 +30,10 @@ const Field = (props) => {
 
   let className = 'block metadata ' + data.id;
   return (
-    <>
+    <ErrorBoundary name={data.id}>
       {showLabel ? data?.title : ''}
       <Widget value={output} className={className} />
-    </>
+    </ErrorBoundary>
   );
 };
 
