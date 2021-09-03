@@ -7,7 +7,11 @@ export const addTableField = ({ schema, intl }) => {
   if (!applied) {
     const resSchema = cloneDeep(schema);
 
-    resSchema.fieldsets[0].fields.push('table');
+    resSchema.fieldsets.push({
+      id: 'tableStyle',
+      fields: ['table'],
+      title: 'Table style',
+    });
     resSchema.properties.table = {
       title: 'Table style',
       widget: 'object',

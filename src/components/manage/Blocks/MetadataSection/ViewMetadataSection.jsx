@@ -47,9 +47,10 @@ const ViewMetadataSectionBlock = withBlockExtensions((props) => {
 export const MetadataSectionListingView = (props) => {
   const { data } = props;
   const { fields = [] } = data;
+  const showFields = fields.filter(({ hideInView }) => !hideInView);
 
-  return fields?.length
-    ? fields.map(({ field, showLabel }, i) => (
+  return showFields?.length
+    ? showFields.map(({ field, showLabel }, i) => (
         <Field key={i} {...props} showLabel={showLabel} data={field} />
       ))
     : '';
@@ -61,8 +62,9 @@ export const MetadataSectionTableView = (props) => {
 
   const initialFormData = useSelector((state) => state?.content?.data || {});
   let metadata = { ...initialFormData, ...properties };
+  const showFields = fields.filter(({ hideInView }) => !hideInView);
 
-  return (
+  return showFields.length ? (
     <Table
       fixed={table.fixed}
       compact={table.compact}
@@ -72,7 +74,7 @@ export const MetadataSectionTableView = (props) => {
       striped={table.striped}
     >
       <Table.Body>
-        {fields.map(({ field, showLabel }, i) => {
+        {showFields.map(({ field, showLabel }, i) => {
           const hasValue = !isEmpty(metadata[field.id]);
 
           return hasValue ? (
@@ -88,6 +90,8 @@ export const MetadataSectionTableView = (props) => {
         })}
       </Table.Body>
     </Table>
+  ) : (
+    ''
   );
 };
 

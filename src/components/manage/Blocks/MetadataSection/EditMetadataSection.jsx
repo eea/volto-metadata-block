@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { BlockDataForm, Field, SidebarPortal } from '@plone/volto/components';
 import MetadataSectionSchema from './schema';
+// import { Segment } from 'semantic-ui-react';
 
 const EditMetadataSectionBlock = (props) => {
   const {
@@ -31,27 +32,32 @@ const EditMetadataSectionBlock = (props) => {
         />
       </SidebarPortal>
 
-      {data.fields?.length
-        ? data.fields.map((value) => {
-            const { id: metadata } = value?.field || {};
-            if (!metadata) return '';
-            const field = schema.properties ? schema.properties[metadata] : {};
-            const required = schema?.required?.includes(metadata);
-            return (
-              <Field
-                {...field}
-                id={metadata}
-                value={properties[metadata]}
-                required={required}
-                onChange={(id, value) => {
-                  onChangeField(id, value);
-                }}
-                key={metadata}
-                block={block}
-              />
-            );
-          })
-        : 'No fields selected'}
+      <fieldset>
+        <legend>Metadata section</legend>
+        {data.fields?.length
+          ? data.fields.map((value) => {
+              const { id: metadata } = value?.field || {};
+              if (!metadata) return '';
+              const field = schema.properties
+                ? schema.properties[metadata]
+                : {};
+              const required = schema?.required?.includes(metadata);
+              return (
+                <Field
+                  {...field}
+                  id={metadata}
+                  value={properties[metadata]}
+                  required={required}
+                  onChange={(id, value) => {
+                    onChangeField(id, value);
+                  }}
+                  key={metadata}
+                  block={block}
+                />
+              );
+            })
+          : 'No fields selected'}
+      </fieldset>
     </div>
   );
 };
