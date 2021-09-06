@@ -75,7 +75,7 @@ export const MetadataSectionTableView = (props) => {
     >
       <Table.Body>
         {showFields.map(({ field, showLabel }, i) => {
-          const hasValue = !isEmpty(metadata[field.id]);
+          const hasValue = !isEmpty(metadata[field?.id]);
 
           return hasValue ? (
             <Table.Row>
