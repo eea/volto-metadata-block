@@ -23,7 +23,7 @@ const applyConfig = (config) => {
     edit: EditMetadataBlock,
     restricted: false,
     mostUsed: false,
-    blockHasOwnFocusManagement: false,
+    blockHasOwnFocusManagement: true,
     sidebarTab: 0,
     security: {
       addPermission: [],
@@ -40,7 +40,7 @@ const applyConfig = (config) => {
     edit: EditMetadataSectionBlock,
     restricted: false,
     mostUsed: false,
-    blockHasOwnFocusManagement: false,
+    blockHasOwnFocusManagement: true,
     sidebarTab: 1,
     security: {
       addPermission: [],
