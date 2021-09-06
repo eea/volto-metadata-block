@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { BlockDataForm, Field, SidebarPortal } from '@plone/volto/components';
 import MetadataSectionSchema from './schema';
-// import { Segment } from 'semantic-ui-react';
+import '@eeacms/volto-metadata-block/less/editor.less';
 
 const EditMetadataSectionBlock = (props) => {
   const {
