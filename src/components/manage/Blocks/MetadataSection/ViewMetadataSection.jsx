@@ -31,7 +31,13 @@ const Field = (props) => {
   let className = 'block metadata ' + data.id;
   return (
     <ErrorBoundary name={data.id}>
-      {showLabel ? <label for={`metadata-${data.id}`} className={className}>{data?.title}</label> : ''}
+      {showLabel ? (
+        <label for={`metadata-${data.id}`} className={className}>
+          {data?.title}
+        </label>
+      ) : (
+        ''
+      )}
       <Widget value={output} className={className} id={`metadata-${data.id}`} />
     </ErrorBoundary>
   );
