@@ -6,7 +6,13 @@
 
 [Volto](https://github.com/plone/volto#volto) add-on: Metadata Block that enables Document metadata insertion within the Blocks area.
 
+### Metadata block
+
 ![Demo](https://github.com/eea/volto-metadata-block/raw/docs/docs/volto-metadata-block.gif)
+
+### Metadata section block
+
+![Demo](https://github.com/eea/volto-metadata-block/raw/docs/docs/volto-metadata-section-block.gif)
 
 ## Getting started
 

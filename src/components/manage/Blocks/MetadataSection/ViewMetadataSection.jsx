@@ -32,7 +32,7 @@ const Field = (props) => {
   return (
     <ErrorBoundary name={data.id}>
       {showLabel ? (
-        <label for={`metadata-${data.id}`} className={className}>
+        <label htmlFor={`metadata-${data.id}`} className={className}>
           {data?.title}
         </label>
       ) : (
@@ -84,7 +84,7 @@ export const MetadataSectionTableView = (props) => {
           const hasValue = !isEmpty(metadata[field?.id]);
 
           return hasValue ? (
-            <Table.Row>
+            <Table.Row key={i}>
               <Table.HeaderCell width={1}>{field.title}</Table.HeaderCell>
               <Table.Cell>
                 <Field key={i} {...props} showLabel={false} data={field} />
