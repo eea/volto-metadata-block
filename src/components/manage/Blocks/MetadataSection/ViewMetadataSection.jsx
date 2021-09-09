@@ -8,16 +8,16 @@ import { withBlockExtensions } from '@plone/volto/helpers';
 import '@eeacms/volto-metadata-block/less/public.less';
 
 const Field = (props) => {
-  const { data, properties = {}, showLabel } = props;
+  const { data, properties = {}, metadata = {}, showLabel } = props;
   const { views } = config.widgets;
   const initialFormData = useSelector((state) => state?.content?.data || {});
-  let metadata = { ...initialFormData, ...properties };
+  let metadata_element = { ...initialFormData, ...properties, ...metadata };
 
   if (!data?.id) {
     return '';
   }
 
-  let output = metadata[data.id];
+  let output = metadata_element[data.id];
   let Widget = views?.getWidget(data);
   if (!output && props.data.placeholder) {
     Widget = views?.default;
@@ -63,11 +63,11 @@ export const MetadataSectionListingView = (props) => {
 };
 
 export const MetadataSectionTableView = (props) => {
-  const { data = {}, properties = {} } = props;
+  const { data = {}, properties = {}, metadata = {} } = props;
   const { table = {}, fields = [] } = data;
 
   const initialFormData = useSelector((state) => state?.content?.data || {});
-  let metadata = { ...initialFormData, ...properties };
+  let metadata_element = { ...initialFormData, ...properties, ...metadata };
   const showFields = fields.filter(({ hideInView }) => !hideInView);
 
   return showFields.length ? (
@@ -81,7 +81,7 @@ export const MetadataSectionTableView = (props) => {
     >
       <Table.Body>
         {showFields.map(({ field, showLabel }, i) => {
-          const hasValue = !isEmpty(metadata[field?.id]);
+          const hasValue = !isEmpty(metadata_element[field?.id]);
 
           return hasValue ? (
             <Table.Row key={i}>

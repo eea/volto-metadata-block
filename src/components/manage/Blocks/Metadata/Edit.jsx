@@ -5,7 +5,7 @@ import { Field } from '@plone/volto/components';
 import { SelectMetadataBlock } from '@eeacms/volto-metadata-block/widgets';
 import '@eeacms/volto-metadata-block/less/editor.less';
 
-export const EditMetadataBlock = (props) => {
+const EditMetadataBlock = (props) => {
   const {
     selected,
     block,
@@ -58,3 +58,5 @@ export const EditMetadataBlock = (props) => {
     </div>
   );
 };
+
+export default EditMetadataBlock;
