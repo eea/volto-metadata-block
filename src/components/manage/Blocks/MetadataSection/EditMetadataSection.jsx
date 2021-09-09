@@ -12,46 +12,53 @@ const EditMetadataSectionBlock = (props) => {
     data,
     onChangeBlock,
     properties,
+    metadata,
     onChangeField,
   } = props;
   const schema = useSelector((state) => state?.schema?.schema || {});
+  let metadata_element = {};
+  metadata
+    ? (metadata_element = { ...metadata })
+    : (metadata_element = { ...properties });
 
   return (
     <div className={cx('block metadata-section', { selected: selected })}>
       <SidebarPortal selected={selected}>
-        <BlockDataForm
-          schema={MetadataSectionSchema}
-          title={MetadataSectionSchema.title}
-          onChangeField={(id, value) => {
-            onChangeBlock(block, {
-              ...data,
-              [id]: value,
-            });
-          }}
-          formData={data}
-        />
+        {!data?.readOnlySettings && (
+          <BlockDataForm
+            schema={MetadataSectionSchema}
+            title={MetadataSectionSchema.title}
+            onChangeField={(id, value) => {
+              onChangeBlock(block, {
+                ...data,
+                [id]: value,
+              });
+            }}
+            formData={data}
+          />
+        )}
       </SidebarPortal>
 
       <fieldset>
-        <legend>Metadata section</legend>
+        <legend aria-hidden="true">{data.title || 'Metadata section'}</legend>
         {data.fields?.length
           ? data.fields.map((value) => {
-              const { id: metadata } = value?.field || {};
-              if (!metadata) return '';
+              const { id: metadata_id } = value?.field || {};
+              if (!metadata_id) return '';
               const field = schema.properties
-                ? schema.properties[metadata]
+                ? schema.properties[metadata_id]
                 : {};
-              const required = schema?.required?.includes(metadata);
+              const required = schema?.required?.includes(metadata_id);
               return (
                 <Field
                   {...field}
-                  id={metadata}
-                  value={properties[metadata]}
+                  id={metadata_id}
+                  value={metadata_element[metadata_id]}
                   required={required}
                   onChange={(id, value) => {
                     onChangeField(id, value);
                   }}
-                  key={metadata}
+                  key={metadata_id}
                   block={block}
                 />
               );
