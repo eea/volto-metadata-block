@@ -13,9 +13,6 @@ export const SelectMetadata = (props) => {
     .map((key) => {
       const field = properties[key];
       const widget = getWidget(key, field);
-      if (field?.type === 'dict') {
-        return false;
-      }
       return {
         key: key,
         value: { id: key, widget: widget },
@@ -50,9 +47,6 @@ export const SelectMetadataField = (props) => {
       .map((key) => {
         const field = properties[key];
         const widget = getWidget(key, field);
-        if (field?.type === 'dict') {
-          return false;
-        }
         return { [key]: { id: key, widget, title: field?.title || key } };
       })
       .filter((val) => !!val),
