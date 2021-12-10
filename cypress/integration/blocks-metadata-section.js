@@ -19,7 +19,7 @@ describe('Blocks Tests', () => {
     cy.waitForResourceToLoad('@types');
     cy.waitForResourceToLoad('my-page');
     cy.navigate('/cypress/my-page/edit');
-    cy.get(`.block.title [data-contents]`);
+    cy.get(`.block.title h1`);
   });
 
   afterEach(() => {
@@ -28,24 +28,32 @@ describe('Blocks Tests', () => {
   });
 
   it('Add Metadata block: Description', () => {
-    // Change page title
-    cy.get('.documentFirstHeading > .public-DraftStyleDefault-block')
-      .clear()
-      .type('My Add-on Page')
-      .get('.documentFirstHeading span[data-text]')
-      .contains('My Add-on Page');
+    // without this the clear command below does nothing sometimes
+    cy.wait(500);
 
-    cy.get('.documentFirstHeading > .public-DraftStyleDefault-block').type(
-      '{enter}',
-    );
+    // Change page title
+    cy.get('[contenteditable=true]').first().clear();
+
+    cy.get('[contenteditable=true]').first().type('My Add-on Page');
+
+    cy.get('.documentFirstHeading').contains('My Add-on Page');
+
+    cy.get('[contenteditable=true]').first().type('{enter}');
 
     // Add metadata block
     cy.get('.ui.basic.icon.button.block-add-button').first().click();
     cy.get('.blocks-chooser .title').contains('Common').click();
-    cy.get('.ui.basic.icon.button.metadataSection').contains('Metadata Section').click();
+    cy.get('.ui.basic.icon.button.metadataSection')
+      .contains('Metadata Section')
+      .click();
     cy.get('.objectlist-widget button').contains('Add Field').click();
-    cy.get('.objectlist-widget .accordion input[type="text"]').click({force: true}).type('Summary').type('{enter}');
-    cy.get('.block.metadataSection textarea').click().type('Test metadata: Summary');
+    cy.get('.objectlist-widget .accordion input[type="text"]')
+      .click({ force: true })
+      .type('Summary')
+      .type('{enter}');
+    cy.get('.block.metadataSection textarea')
+      .click()
+      .type('Test metadata: Summary');
 
     // Save
     cy.get('#toolbar-save').click();
