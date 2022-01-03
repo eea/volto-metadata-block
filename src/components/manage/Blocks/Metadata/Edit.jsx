@@ -17,7 +17,9 @@ const EditMetadataBlock = (props) => {
     metadata,
   } = props;
   const [metadata_id, setMetadata_id] = useState(data?.data?.id);
-  const schema = useSelector((state) => state?.schema?.schema || {});
+  const schema = useSelector((state) => {
+    return state?.schema?.schema || {};
+  });
   let metadata_element = {};
   metadata
     ? (metadata_element = { ...metadata })
@@ -32,7 +34,7 @@ const EditMetadataBlock = (props) => {
     [block, data, onChangeBlock],
   );
 
-  const field = schema.properties ? schema.properties[metadata_id] : {};
+  const field = schema.properties ? schema.properties[metadata_id] : null;
   const required = schema?.required?.includes(metadata_id);
 
   return (
