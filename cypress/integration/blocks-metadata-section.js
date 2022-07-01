@@ -24,10 +24,9 @@ describe('Blocks Tests', () => {
       .contains('Metadata Section')
       .click();
     cy.get('.objectlist-widget button').contains('Add Field').click();
-    cy.get('.objectlist-widget .accordion input[type="text"]')
-      .click({ force: true })
-      .type('Summary')
-      .type('{enter}');
+    cy.get('.objectlist-widget .react-select__value-container')
+      .click()
+      .type('Summary{enter}');
     cy.get('.block.metadataSection textarea')
       .click()
       .type('Test metadata: Summary');
