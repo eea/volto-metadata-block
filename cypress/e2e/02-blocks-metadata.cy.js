@@ -1,8 +1,8 @@
-import { setupBeforeEach, tearDownAfterEach } from '../support';
+import { slateBeforeEach, slateAfterEach } from '../support/e2e';
 
 describe('Blocks Tests', () => {
-  beforeEach(setupBeforeEach);
-  afterEach(tearDownAfterEach);
+  beforeEach(slateBeforeEach);
+  afterEach(slateAfterEach);
 
   it('Add Metadata block: Description', () => {
     // without this the clear command below does nothing sometimes
