@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MetadataSectionListingView renders fields correctly 1`] = `
+Array [
+  <label
+    className="block metadata field1"
+    htmlFor="metadata-field1"
+  >
+    Title field1
+  </label>,
+  <div>
+    Widget Component
+  </div>,
+  <label
+    className="block metadata field2"
+    htmlFor="metadata-field2"
+  >
+    Title field2
+  </label>,
+  <div>
+    Widget Component
+  </div>,
+]
+`;
+
+exports[`MetadataSectionTableView renders table with fields correctly 1`] = `
+<table
+  className="ui celled striped compact table"
+>
+  <tbody
+    className=""
+  >
+    
+    
+  </tbody>
+</table>
+`;
