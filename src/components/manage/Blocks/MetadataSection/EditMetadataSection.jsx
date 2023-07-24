@@ -17,9 +17,7 @@ const EditMetadataSectionBlock = (props) => {
   } = props;
   const schema = useSelector((state) => state?.schema?.schema || {});
   let metadata_element = {};
-  metadata
-    ? (metadata_element = { ...metadata })
-    : (metadata_element = { ...properties });
+  metadata_element = metadata ? { ...metadata } : { ...properties };
 
   return (
     <div className={cx('block metadata-section', { selected: selected })}>

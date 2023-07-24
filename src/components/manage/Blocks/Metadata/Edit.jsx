@@ -21,9 +21,7 @@ const EditMetadataBlock = (props) => {
     return state?.schema?.schema || {};
   });
   let metadata_element = {};
-  metadata
-    ? (metadata_element = { ...metadata })
-    : (metadata_element = { ...properties });
+  metadata_element = metadata ? { ...metadata } : { ...properties };
 
   const onMetadataSelect = React.useCallback(
     (event, select) => {
