@@ -1,6 +1,6 @@
 {
   "name": "@eeacms/volto-metadata-block",
-  "version": "5.1.2",
+  "version": "6.0.0",
   "description": "Volto Metadata Block",
   "main": "src/index.js",
   "author": "European Environment Agency: IDM2 A-Team",
@@ -17,12 +17,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:eea/volto-metadata-block.git"
-  },
-  "addons": [
-    "@eeacms/volto-widgets-view"
-  ],
-  "dependencies": {
-    "@eeacms/volto-widgets-view": "*"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
