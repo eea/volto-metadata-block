@@ -15,30 +15,34 @@
 [![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-metadata-block-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-metadata-block-develop)
 
 
+[Volto](https://github.com/plone/volto) add-on
 
-[Volto](https://github.com/plone/volto#volto) add-on: Metadata Block that enables Document metadata insertion within the Blocks area.
+## Features
 
-### Metadata block
-
-![Demo](https://github.com/eea/volto-metadata-block/raw/docs/docs/volto-metadata-block.gif)
-
-### Metadata section block
-
-![Demo](https://github.com/eea/volto-metadata-block/raw/docs/docs/volto-metadata-section-block.gif)
+Demo GIF
 
 ## Getting started
 
-1. Create new volto project if you don't already have one:
+### Try volto-metadata-block with Docker
 
+      git clone https://github.com/eea/volto-metadata-block.git
+      cd volto-metadata-block
+      make
+      make start
+
+Go to http://localhost:3000
+
+### Add volto-metadata-block to your Volto project
+
+1. Make sure you have a [Plone backend](https://plone.org/download) up-and-running at http://localhost:8080/Plone
+
+   ```Bash
+   docker compose up backend
    ```
-   $ npm install -g yo @plone/generator-volto
-   $ yo @plone/volto my-volto-project --addon @eeacms/volto-metadata-block
 
-   $ cd my-volto-project
-   $ yarn add -W @eeacms/volto-metadata-block
-   ```
+1. Start Volto frontend
 
-1. If you already have a volto project, just update `package.json`:
+* If you already have a volto project, just update `package.json`:
 
    ```JSON
    "addons": [
@@ -50,11 +54,19 @@
    }
    ```
 
+* If not, create one:
+
+   ```
+   npm install -g yo @plone/generator-volto
+   yo @plone/volto my-volto-project --canary --addon @eeacms/volto-metadata-block
+   cd my-volto-project
+   ```
+
 1. Install new add-ons and restart Volto:
 
    ```
-   $ yarn
-   $ yarn start
+   yarn
+   yarn start
    ```
 
 1. Go to http://localhost:3000
@@ -63,16 +75,11 @@
 
 ## Release
 
-See [RELEASE.md](https://github.com/eea/volto-metadata-block/blob/master/RELEASE.md)
-
+See [RELEASE.md](https://github.com/eea/volto-metadata-block/blob/master/RELEASE.md).
 
 ## How to contribute
 
-See [DEVELOP.md]https://github.com/eea/volto-metadata-block/blob/master/DEVELOP.md).
-
-## See also
-
-- [volto-slate-metadata-mentions](https://github.com/eea/volto-slate-metadata-mentions)
+See [DEVELOP.md](https://github.com/eea/volto-metadata-block/blob/master/DEVELOP.md).
 
 ## Copyright and license
 
