@@ -1,9 +1,16 @@
 import React from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
-import { BlockDataForm, Field, SidebarPortal } from '@plone/volto/components';
+import { BlockDataForm, SidebarPortal } from '@plone/volto/components';
 import MetadataBehaviorSchema from './schema';
-import '@eeacms/volto-metadata-block/less/editor.less';
+import ViewMetadataBehavior from './ViewMetadataBehavior';
+
+const extractBehaviors = ({ properties = {} }) =>
+  Object.entries(properties).reduce(
+    (acc, [name, field]) =>
+      acc.includes(field.behavior) ? acc : [...acc, field.behavior],
+    [],
+  );
 
 const EditMetadataBehaviorBlock = (props) => {
   const {
@@ -11,20 +18,25 @@ const EditMetadataBehaviorBlock = (props) => {
     block,
     data,
     onChangeBlock,
-    properties,
-    metadata,
-    onChangeField,
+    intl,
+    // properties,
+    // metadata,
+    // onChangeField,
   } = props;
   const schema = useSelector((state) => state?.schema?.schema || {});
-  let metadata_element = {};
-  metadata_element = metadata ? { ...metadata } : { ...properties };
+  const behaviors = extractBehaviors(schema);
+  // let metadata_element = {};
+  // metadata_element = metadata ? { ...metadata } : { ...properties };
+
+  const blockSchema = MetadataBehaviorSchema({ intl });
+  blockSchema.properties.behavior.choices = behaviors.map((id) => [id, id]);
 
   return (
     <div className={cx('block metadata-section', { selected: selected })}>
       <SidebarPortal selected={selected}>
         {!data?.readOnlySettings && (
           <BlockDataForm
-            schema={MetadataBehaviorSchema}
+            schema={blockSchema}
             title={MetadataBehaviorSchema.title}
             onChangeField={(id, value) => {
               onChangeBlock(block, {
@@ -37,7 +49,7 @@ const EditMetadataBehaviorBlock = (props) => {
         )}
       </SidebarPortal>
 
-      <div>muu</div>
+      <ViewMetadataBehavior {...props} />
     </div>
   );
 };

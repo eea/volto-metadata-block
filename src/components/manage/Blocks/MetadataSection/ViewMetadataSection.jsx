@@ -5,6 +5,7 @@ import { Table } from 'semantic-ui-react';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
 import { isEmpty } from 'lodash';
 import { withBlockExtensions } from '@plone/volto/helpers';
+
 import '@eeacms/volto-metadata-block/less/public.less';
 
 const Field = (props) => {
