@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditMetadataSection renders the block correctly 1`] = `
+<div
+  className="block metadata-section selected"
+>
+  <div>
+    SidebarPortal
+  </div>
+  <fieldset>
+    <legend
+      aria-hidden="true"
+    >
+      Metadata section
+    </legend>
+    No fields selected
+  </fieldset>
+</div>
+`;

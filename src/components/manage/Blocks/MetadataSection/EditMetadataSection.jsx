@@ -5,7 +5,7 @@ import { BlockDataForm, Field, SidebarPortal } from '@plone/volto/components';
 import MetadataSectionSchema from './schema';
 import '@eeacms/volto-metadata-block/less/editor.less';
 
-const EditMetadataSectionBlock = (props) => {
+export default function EditMetadataSectionBlock(props) {
   const {
     selected,
     block,
@@ -65,6 +65,4 @@ const EditMetadataSectionBlock = (props) => {
       </fieldset>
     </div>
   );
-};
-
-export default EditMetadataSectionBlock;
+}
