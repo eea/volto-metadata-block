@@ -3,7 +3,7 @@ import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { BlockDataForm, SidebarPortal } from '@plone/volto/components';
 import MetadataBehaviorSchema from './schema';
-import ViewMetadataBehavior from './ViewMetadataBehavior';
+import FieldEditor from '../MetadataSection/FieldEditor';
 
 const extractBehaviors = ({ properties = {} }) =>
   Object.entries(properties).reduce(
@@ -19,17 +19,23 @@ const EditMetadataBehaviorBlock = (props) => {
     data,
     onChangeBlock,
     intl,
-    // properties,
-    // metadata,
-    // onChangeField,
+    properties,
+    metadata,
+    onChangeField,
   } = props;
   const schema = useSelector((state) => state?.schema?.schema || {});
-  const behaviors = extractBehaviors(schema);
-  // let metadata_element = {};
-  // metadata_element = metadata ? { ...metadata } : { ...properties };
-
-  const blockSchema = MetadataBehaviorSchema({ intl });
-  blockSchema.properties.behavior.choices = behaviors.map((id) => [id, id]);
+  // const fieldsInOrder = schema.
+  const behaviors = React.useMemo(() => extractBehaviors(schema), [schema]);
+  const blockSchema = React.useMemo(() => {
+    const _schema = MetadataBehaviorSchema({ intl });
+    _schema.properties.behavior.choices = behaviors.map((id) => [id, id]);
+    return _schema;
+  }, [intl, behaviors]);
+  const schemataFields = schema.fieldsets?.reduce((result, fieldset) => {
+    console.log(result, fieldset);
+    return [...result, ...fieldset.fields];
+  }, []);
+  console.log(schemataFields);
 
   return (
     <div className={cx('block metadata-section', { selected: selected })}>
@@ -48,8 +54,13 @@ const EditMetadataBehaviorBlock = (props) => {
           />
         )}
       </SidebarPortal>
-
-      <ViewMetadataBehavior {...props} />
+      <FieldEditor
+        block={block}
+        schema={schema}
+        fields={[]}
+        onChangeField={onChangeField}
+        fieldData={metadata || properties}
+      />
     </div>
   );
 };
