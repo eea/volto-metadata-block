@@ -15,11 +15,16 @@
 [![Duplicated Lines (%)](https://sonarqube.eea.europa.eu/api/project_badges/measure?project=volto-metadata-block-develop&metric=duplicated_lines_density)](https://sonarqube.eea.europa.eu/dashboard?id=volto-metadata-block-develop)
 
 
-[Volto](https://github.com/plone/volto) add-on
 
-## Features
+[Volto](https://github.com/plone/volto#volto) add-on: Metadata Block that enables Document metadata insertion within the Blocks area.
 
-Demo GIF
+### Metadata block
+
+![Demo](https://github.com/eea/volto-metadata-block/raw/docs/docs/volto-metadata-block.gif)
+
+### Metadata section block
+
+![Demo](https://github.com/eea/volto-metadata-block/raw/docs/docs/volto-metadata-section-block.gif)
 
 ## Getting started
 
@@ -75,11 +80,16 @@ Go to http://localhost:3000
 
 ## Release
 
-See [RELEASE.md](https://github.com/eea/volto-metadata-block/blob/master/RELEASE.md).
+See [RELEASE.md](https://github.com/eea/volto-metadata-block/blob/master/RELEASE.md)
+
 
 ## How to contribute
 
-See [DEVELOP.md](https://github.com/eea/volto-metadata-block/blob/master/DEVELOP.md).
+See [DEVELOP.md](https://github.com/eea/volto-metadata-block/blob/master/DEVELOP.md)
+
+## See also
+
+- [volto-slate-metadata-mentions](https://github.com/eea/volto-slate-metadata-mentions)
 
 ## Copyright and license
 
