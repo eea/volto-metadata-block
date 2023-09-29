@@ -26,6 +26,10 @@
 
 ![Demo](https://github.com/eea/volto-metadata-block/raw/docs/docs/volto-metadata-section-block.gif)
 
+## See also
+
+* [volto-slate-metadata-mentions](https://github.com/eea/volto-slate-metadata-mentions)
+
 ## Getting started
 
 ### Try volto-metadata-block with Docker
@@ -80,16 +84,11 @@ Go to http://localhost:3000
 
 ## Release
 
-See [RELEASE.md](https://github.com/eea/volto-metadata-block/blob/master/RELEASE.md)
-
+See [RELEASE.md](https://github.com/eea/volto-metadata-block/blob/master/RELEASE.md).
 
 ## How to contribute
 
-See [DEVELOP.md](https://github.com/eea/volto-metadata-block/blob/master/DEVELOP.md)
-
-## See also
-
-- [volto-slate-metadata-mentions](https://github.com/eea/volto-slate-metadata-mentions)
+See [DEVELOP.md](https://github.com/eea/volto-metadata-block/blob/master/DEVELOP.md).
 
 ## Copyright and license
 
