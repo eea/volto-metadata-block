@@ -18,6 +18,9 @@
     "type": "git",
     "url": "git@github.com:eea/volto-metadata-block.git"
   },
+  "dependencies": {
+    "razzle-plugin-scss": "4.2.18"
+  },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",
     "@plone/scripts": "*",
