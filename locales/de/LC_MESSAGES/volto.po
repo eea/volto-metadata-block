@@ -1,0 +1,47 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: components/manage/Blocks/MetadataSection/i18n
+# defaultMessage: Default
+msgid "Default"
+msgstr ""
+
+#: components/manage/Blocks/MetadataSection/i18n
+# defaultMessage: Divide each row into separate cells
+msgid "Divide each row into separate cells"
+msgstr ""
+
+#: components/manage/Blocks/MetadataSection/i18n
+# defaultMessage: Fixed width table cells
+msgid "Fixed width table cells"
+msgstr ""
+
+#: components/manage/Blocks/MetadataSection/i18n
+# defaultMessage: Make the table compact
+msgid "Make the table compact"
+msgstr ""
+
+#: components/manage/Blocks/MetadataSection/i18n
+# defaultMessage: Reduce complexity
+msgid "Reduce complexity"
+msgstr ""
+
+#: components/manage/Blocks/MetadataSection/i18n
+# defaultMessage: Stripe alternate rows with color
+msgid "Stripe alternate rows with color"
+msgstr ""
+
+#: components/manage/Blocks/MetadataSection/i18n
+# defaultMessage: Table color inverted
+msgid "Table color inverted"
+msgstr ""
