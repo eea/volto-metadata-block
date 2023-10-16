@@ -3,21 +3,21 @@ import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import { Table } from 'semantic-ui-react';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
-import '@eeacms/volto-metadata-block/less/public.less';
 import { isEmpty } from 'lodash';
 import { withBlockExtensions } from '@plone/volto/helpers';
+import '@eeacms/volto-metadata-block/less/public.less';
 
 const Field = (props) => {
-  const { data, properties = {}, showLabel } = props;
+  const { data, properties = {}, metadata = {}, showLabel } = props;
   const { views } = config.widgets;
   const initialFormData = useSelector((state) => state?.content?.data || {});
-  let metadata = { ...initialFormData, ...properties };
+  let metadata_element = { ...initialFormData, ...properties, ...metadata };
 
   if (!data?.id) {
     return '';
   }
 
-  let output = metadata[data.id];
+  let output = metadata_element[data.id];
   let Widget = views?.getWidget(data);
   if (!output && props.data.placeholder) {
     Widget = views?.default;
@@ -31,8 +31,14 @@ const Field = (props) => {
   let className = 'block metadata ' + data.id;
   return (
     <ErrorBoundary name={data.id}>
-      {showLabel ? data?.title : ''}
-      <Widget value={output} className={className} />
+      {showLabel ? (
+        <label htmlFor={`metadata-${data.id}`} className={className}>
+          {data?.title}
+        </label>
+      ) : (
+        ''
+      )}
+      <Widget value={output} className={className} id={`metadata-${data.id}`} />
     </ErrorBoundary>
   );
 };
@@ -57,11 +63,11 @@ export const MetadataSectionListingView = (props) => {
 };
 
 export const MetadataSectionTableView = (props) => {
-  const { data = {}, properties = {} } = props;
+  const { data = {}, properties = {}, metadata = {} } = props;
   const { table = {}, fields = [] } = data;
 
   const initialFormData = useSelector((state) => state?.content?.data || {});
-  let metadata = { ...initialFormData, ...properties };
+  let metadata_element = { ...initialFormData, ...properties, ...metadata };
   const showFields = fields.filter(({ hideInView }) => !hideInView);
 
   return showFields.length ? (
@@ -75,10 +81,10 @@ export const MetadataSectionTableView = (props) => {
     >
       <Table.Body>
         {showFields.map(({ field, showLabel }, i) => {
-          const hasValue = !isEmpty(metadata[field.id]);
+          const hasValue = !isEmpty(metadata_element[field?.id]);
 
           return hasValue ? (
-            <Table.Row>
+            <Table.Row key={i}>
               <Table.HeaderCell width={1}>{field.title}</Table.HeaderCell>
               <Table.Cell>
                 <Field key={i} {...props} showLabel={false} data={field} />

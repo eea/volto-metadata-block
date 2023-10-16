@@ -1,0 +1,74 @@
+@type: 'extra';
+@element: 'custom';
+
+@import (multiple, reference, optional) '../../theme.config';
+
+@borderColor: rgba(120, 192, 215, 0.75);
+
+.metadata,
+.metadata-section {
+  &.block {
+    display: block;
+    min-height: 1.5rem;
+
+    &.selected::before,
+    &:hover::before {
+      border-style: dashed !important;
+    }
+
+    fieldset {
+      border: none;
+
+      legend {
+        position: absolute;
+        z-index: 3;
+        top: -1.3rem;
+        left: 0;
+        width: fit-content;
+        padding: 0 1rem;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: @pageBackground;
+        color: @borderColor;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .inline.field {
+        margin-top: 1.5rem;
+      }
+    }
+
+    .row {
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 0 !important;
+
+      .eight.wide.column,
+      .four.wide.column {
+        width: 100% !important;
+
+        .wrapper {
+          min-height: 0;
+          border-bottom: none;
+        }
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      .help {
+        color: #999;
+        font-size: 75%;
+      }
+    }
+
+    &.selected {
+      .slate_wysiwyg_box,
+      .DraftEditor-editorContainer {
+        border: 1px solid @borderColor;
+      }
+    }
+  }
+}

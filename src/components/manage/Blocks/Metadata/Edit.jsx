@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { Field } from '@plone/volto/components';
-
 import { SelectMetadataBlock } from '@eeacms/volto-metadata-block/widgets';
+import '@eeacms/volto-metadata-block/less/editor.less';
 
-export const EditMetadataBlock = (props) => {
+const EditMetadataBlock = (props) => {
   const {
     selected,
     block,
@@ -17,11 +17,11 @@ export const EditMetadataBlock = (props) => {
     metadata,
   } = props;
   const [metadata_id, setMetadata_id] = useState(data?.data?.id);
-  const schema = useSelector((state) => state?.schema?.schema || {});
+  const schema = useSelector((state) => {
+    return state?.schema?.schema || {};
+  });
   let metadata_element = {};
-  metadata
-    ? (metadata_element = { ...metadata })
-    : (metadata_element = { ...properties });
+  metadata_element = metadata ? { ...metadata } : { ...properties };
 
   const onMetadataSelect = React.useCallback(
     (event, select) => {
@@ -32,7 +32,7 @@ export const EditMetadataBlock = (props) => {
     [block, data, onChangeBlock],
   );
 
-  const field = schema.properties ? schema.properties[metadata_id] : {};
+  const field = schema.properties ? schema.properties[metadata_id] : null;
   const required = schema?.required?.includes(metadata_id);
 
   return (
@@ -58,3 +58,5 @@ export const EditMetadataBlock = (props) => {
     </div>
   );
 };
+
+export default EditMetadataBlock;

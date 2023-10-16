@@ -1,25 +1,25 @@
-import { setupBeforeEach, tearDownAfterEach } from '../support';
+import { slateBeforeEach, slateAfterEach } from '../support/e2e';
 
 describe('Blocks Tests', () => {
-  beforeEach(setupBeforeEach);
-  afterEach(tearDownAfterEach);
+  beforeEach(slateBeforeEach);
+  afterEach(slateAfterEach);
 
   it('Add Metadata block: Description', () => {
     // Change page title
-    cy.get('.documentFirstHeading > .public-DraftStyleDefault-block')
-      .clear()
-      .type('My Add-on Page')
-      .get('.documentFirstHeading span[data-text]')
-      .contains('My Add-on Page');
+    cy.clearSlateTitle();
+    cy.getSlateTitle().type('My Add-on Page');
 
-    cy.get('.documentFirstHeading > .public-DraftStyleDefault-block').type(
-      '{enter}',
-    );
+    cy.get('.documentFirstHeading').contains('My Add-on Page');
 
-    // Add metadata block
+    cy.getSlate().click();
+
+    // Add Metadata block
     cy.get('.ui.basic.icon.button.block-add-button').first().click();
     cy.get('.blocks-chooser .title').contains('Common').click();
-    cy.get('.ui.basic.icon.button.metadata').contains('Metadata').click();
+    cy.get('.content.active.common .button.metadata')
+      .contains('Metadata')
+      .click({ force: true });
+
     cy.get('.block.metadata input').click().type('Summary').type('{enter}');
     cy.get('.block.metadata textarea').click().type('Test metadata: Summary');
 

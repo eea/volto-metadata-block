@@ -4,16 +4,15 @@ import { useSelector } from 'react-redux';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
 import '@eeacms/volto-metadata-block/less/public.less';
 
-export const ViewMetadataBlock = (props) => {
+const ViewMetadataBlock = (props) => {
   const { data } = props.data;
   const { views } = config.widgets;
   const initialFormData = useSelector((state) => state?.content?.data || {});
   let metadata_element = { ...initialFormData };
 
   const { properties, metadata } = props;
-  metadata
-    ? (metadata_element = { ...metadata })
-    : (metadata_element = { ...properties });
+
+  metadata_element = metadata ? { ...metadata } : { ...properties };
 
   if (!data?.id) {
     return '';
@@ -37,3 +36,5 @@ export const ViewMetadataBlock = (props) => {
     </ErrorBoundary>
   );
 };
+
+export default ViewMetadataBlock;
