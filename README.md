@@ -20,11 +20,11 @@
 
 ### Metadata block
 
-![Demo](https://github.com/eea/volto-metadata-block/raw/master/docs/volto-metadata-block.gif)
+![Demo](https://raw.githubusercontent.com/eea/volto-metadata-block/master/docs/volto-metadata-block.gif)
 
 ### Metadata section block
 
-![Demo](https://github.com/eea/volto-metadata-block/raw/master/docs/volto-metadata-section-block.gif)
+![Demo](https://raw.githubusercontent.com/eea/volto-metadata-block/master/docs/volto-metadata-section-block.gif)
 
 ## See also
 
