@@ -31,7 +31,6 @@ const ViewMetadataBlock = (props) => {
 
   let className = 'block metadata ' + data.id;
 
-  console.log('HERE', data?.id, Widget.displayName);
   return (
     <ErrorBoundary name={data.id}>
       <Widget value={output} className={className} />
