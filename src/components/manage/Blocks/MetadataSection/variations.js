@@ -1,11 +1,11 @@
 import { TableSchema } from './schema';
-import { cloneDeep } from 'lodash';
+import { cloneDeepSchema } from '@plone/volto/helpers/Utils/Utils';
 
 export const addTableField = ({ schema, intl }) => {
   const applied = schema.fieldsets[0].fields.includes('table');
 
   if (!applied) {
-    const resSchema = cloneDeep(schema);
+    const resSchema = cloneDeepSchema(schema);
 
     resSchema.fieldsets.push({
       id: 'tableStyle',
