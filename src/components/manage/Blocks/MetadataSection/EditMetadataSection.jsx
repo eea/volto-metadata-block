@@ -47,7 +47,6 @@ const EditMetadataSectionBlock = (props) => {
                 ? schema.properties[metadata_id]
                 : null;
               const required = schema?.required?.includes(metadata_id);
-
               return (
                 field && (
                   <Field
