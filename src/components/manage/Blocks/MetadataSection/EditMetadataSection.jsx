@@ -48,17 +48,19 @@ const EditMetadataSectionBlock = (props) => {
                 : null;
               const required = schema?.required?.includes(metadata_id);
               return (
-                <Field
-                  {...field}
-                  id={metadata_id}
-                  value={metadata_element[metadata_id]}
-                  required={required}
-                  onChange={(id, value) => {
-                    onChangeField(id, value);
-                  }}
-                  key={metadata_id}
-                  block={block}
-                />
+                field && (
+                  <Field
+                    {...field}
+                    id={metadata_id}
+                    value={metadata_element[metadata_id]}
+                    required={required}
+                    onChange={(id, value) => {
+                      onChangeField(id, value);
+                    }}
+                    key={metadata_id}
+                    block={block}
+                  />
+                )
               );
             })
           : 'No fields selected'}
