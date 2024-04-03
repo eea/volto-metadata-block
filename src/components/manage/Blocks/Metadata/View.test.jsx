@@ -1,8 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-intl-redux';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import ViewMetadataBlock from './View';
+import '@testing-library/jest-dom/extend-expect';
 
 const mockStore = configureStore();
 
@@ -36,12 +37,11 @@ jest.mock('@plone/volto/registry', () => ({
 
 describe('ViewMetadataBlock', () => {
   it('renders correctly', () => {
-    const component = renderer.create(
+    render(
       <Provider store={store}>
         <ViewMetadataBlock data={mockData} />
       </Provider>,
     );
-    const json = component.toJSON();
-    expect(json).toMatchSnapshot();
+    expect(screen.getByText('Mock Widget')).toBeInTheDocument();
   });
 });
