@@ -14,6 +14,7 @@ const EditMetadataSectionBlock = (props) => {
     properties,
     metadata,
     onChangeField,
+    onTabChange
   } = props;
   const schema = useSelector((state) => state?.schema?.schema || {});
   let metadata_element = {};
@@ -56,6 +57,7 @@ const EditMetadataSectionBlock = (props) => {
                     required={required}
                     onChange={(id, value) => {
                       onChangeField(id, value);
+                      onTabChange({}, { activeIndex: 0 });
                     }}
                     key={metadata_id}
                     block={block}
