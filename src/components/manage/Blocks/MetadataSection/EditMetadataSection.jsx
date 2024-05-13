@@ -14,14 +14,16 @@ const EditMetadataSectionBlock = (props) => {
     properties,
     metadata,
     onChangeField,
-    onTabChange,
   } = props;
   const schema = useSelector((state) => state?.schema?.schema || {});
   let metadata_element = {};
   metadata_element = metadata ? { ...metadata } : { ...properties };
 
   return (
-    <div className={cx('block metadata-section', { selected: selected })}>
+    <div
+      className={cx('block metadata-section', { selected: selected })}
+      id={block}
+    >
       <SidebarPortal selected={selected}>
         {!data?.readOnlySettings && (
           <BlockDataForm
@@ -57,7 +59,9 @@ const EditMetadataSectionBlock = (props) => {
                     required={required}
                     onChange={(id, value) => {
                       onChangeField(id, value);
-                      onTabChange({}, { activeIndex: 0 });
+                      //move the focus to the sidebar after changing metadata
+                      if (document?.getElementById('sidebar-metadata'))
+                        document.getElementById('sidebar-metadata').focus();
                     }}
                     key={metadata_id}
                     block={block}
