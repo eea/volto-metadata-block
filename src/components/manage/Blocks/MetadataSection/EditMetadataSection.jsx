@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
+import { useSelector } from 'react-redux';
 import { BlockDataForm, Field, SidebarPortal } from '@plone/volto/components';
 import MetadataSectionSchema from './schema';
 import '@eeacms/volto-metadata-block/less/editor.less';
-import { useSelector } from 'react-redux';
 
 const EditMetadataSectionBlock = (props) => {
   const {
