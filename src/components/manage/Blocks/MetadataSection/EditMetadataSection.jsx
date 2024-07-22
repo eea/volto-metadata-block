@@ -14,6 +14,7 @@ const EditMetadataSectionBlock = (props) => {
     properties,
     metadata,
     onChangeField,
+    errors,
   } = props;
   const schema = useSelector((state) => state?.schema?.schema || {});
   let metadata_element = {};
@@ -59,6 +60,7 @@ const EditMetadataSectionBlock = (props) => {
                     }}
                     key={metadata_id}
                     block={block}
+                    error={errors?.[metadata_id]}
                   />
                 )
               );
