@@ -15,6 +15,7 @@ const EditMetadataBlock = (props) => {
     onChangeField,
     properties,
     metadata,
+    errors,
   } = props;
   const [metadata_id, setMetadata_id] = useState(data?.data?.id);
   const schema = useSelector((state) => {
@@ -48,6 +49,7 @@ const EditMetadataBlock = (props) => {
           }}
           key={metadata_id}
           block={block}
+          error={errors?.[metadata_id]}
         />
       ) : (
         <SelectMetadataBlock
