@@ -7,6 +7,15 @@ import { isEmpty } from 'lodash';
 import { withBlockExtensions } from '@plone/volto/helpers';
 import '@eeacms/volto-metadata-block/less/public.less';
 
+function isEmptyWithNumberCheck(value) {
+  // Check if the value is a number and is not NaN
+  if (typeof value === 'number' && !isNaN(value)) {
+    return false; // Numbers, including 0, are considered non-empty
+  }
+
+  // Fallback to Lodash's isEmpty for other types
+  return isEmpty(value);
+}
 const Field = (props) => {
   const { data, properties = {}, metadata = {}, showLabel } = props;
   const { views } = config.widgets;
@@ -81,7 +90,7 @@ export const MetadataSectionTableView = (props) => {
     >
       <Table.Body>
         {showFields.map(({ field, showLabel }, i) => {
-          const hasValue = !isEmpty(metadata_element[field?.id]);
+          const hasValue = !isEmptyWithNumberCheck(metadata_element[field?.id]);
 
           return hasValue ? (
             <Table.Row key={i}>
