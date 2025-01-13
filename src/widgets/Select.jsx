@@ -3,8 +3,17 @@ import { Dropdown } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import { getWidget } from '@eeacms/volto-metadata-block/utils';
 import { Field } from '@plone/volto/components';
+import { defineMessages, useIntl } from 'react-intl';
+
+const messages = defineMessages({
+  selectMetadata: {
+    id: 'selectMetadata',
+    defaultMessage: 'Select metadata',
+  }
+})
 
 export const SelectMetadata = (props) => {
+  const intl = useIntl();
   // Get Object metadata from global state
   const properties = useSelector(
     (state) => state?.schema?.schema?.properties || {},
@@ -27,7 +36,7 @@ export const SelectMetadata = (props) => {
       value={props.value}
       selection
       search
-      placeholder="Select metadata"
+      placeholder={intl.formatMessage(messages.selectMetadata)}
       options={vocabulary}
     />
   );
