@@ -11,37 +11,77 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. Default: "Default"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Default
 msgid "Default"
 msgstr ""
 
+#. Default: "Divide each row into separate cells"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Divide each row into separate cells
 msgid "Divide each row into separate cells"
 msgstr ""
 
+#. Default: "Fields"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Fixed width table cells
+msgid "Fields"
+msgstr ""
+
+#. Default: "Fixed width table cells"
+#: components/manage/Blocks/MetadataSection/i18n
 msgid "Fixed width table cells"
 msgstr ""
 
+#. Default: "Make the table compact"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Make the table compact
 msgid "Make the table compact"
 msgstr ""
 
+#. Default: "No fields selected"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Reduce complexity
+msgid "No fields selected"
+msgstr ""
+
+#. Default: "Reduce complexity"
+#: components/manage/Blocks/MetadataSection/i18n
 msgid "Reduce complexity"
 msgstr ""
 
+#. Default: "Stripe alternate rows with color"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Stripe alternate rows with color
 msgid "Stripe alternate rows with color"
 msgstr ""
 
+#. Default: "Table color inverted"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Table color inverted
 msgid "Table color inverted"
+msgstr ""
+
+#. Default: "Field"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "field"
+msgstr ""
+
+#. Default: "Hide in view page?"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "hideInView"
+msgstr ""
+
+#. Default: "Metadata section"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "metadataSection"
+msgstr ""
+
+#. Default: "Select metadata"
+#: widgets/Select
+msgid "selectMetadata"
+msgstr ""
+
+#. Default: "Show label?"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "showLabel"
+msgstr ""
+
+#. Default: "Table Style"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "tableStyle"
 msgstr ""
