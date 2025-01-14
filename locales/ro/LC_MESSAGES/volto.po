@@ -36,6 +36,16 @@ msgstr ""
 msgid "Make the table compact"
 msgstr ""
 
+#. Default: "Metadata"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Metadata"
+msgstr ""
+
+#. Default: "Metadata Section"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Metadata Section"
+msgstr ""
+
 #. Default: "No fields selected"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "No fields selected"
@@ -44,6 +54,11 @@ msgstr ""
 #. Default: "Reduce complexity"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "Reduce complexity"
+msgstr ""
+
+#. Default: "Simple list"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Simple list"
 msgstr ""
 
 #. Default: "Stripe alternate rows with color"
@@ -64,11 +79,6 @@ msgstr ""
 #. Default: "Hide in view page?"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "hideInView"
-msgstr ""
-
-#. Default: "Metadata section"
-#: components/manage/Blocks/MetadataSection/i18n
-msgid "metadataSection"
 msgstr ""
 
 #. Default: "Select metadata"

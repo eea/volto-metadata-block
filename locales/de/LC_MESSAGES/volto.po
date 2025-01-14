@@ -36,6 +36,16 @@ msgstr "Tabellenzellen mit fester Breite"
 msgid "Make the table compact"
 msgstr "Die Tabelle kompakt gestalten"
 
+#. Default: "Metadata"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Metadata"
+msgstr "Metadaten"
+
+#. Default: "Metadata Section"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Metadata Section"
+msgstr "Metadaten-Abschnitt"
+
 #. Default: "No fields selected"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "No fields selected"
@@ -45,6 +55,11 @@ msgstr "Keine Felder ausgewählt"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "Reduce complexity"
 msgstr "Reduktion der Komplexität"
+
+#. Default: "Simple list"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Simple list"
+msgstr "Einfache Liste"
 
 #. Default: "Stripe alternate rows with color"
 #: components/manage/Blocks/MetadataSection/i18n
@@ -65,11 +80,6 @@ msgstr "Feld"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "hideInView"
 msgstr "In der Ansichtsseite ausblenden?"
-
-#. Default: "Metadata section"
-#: components/manage/Blocks/MetadataSection/i18n
-msgid "metadataSection"
-msgstr "Metadaten-Abschnitt"
 
 #. Default: "Select metadata"
 #: widgets/Select

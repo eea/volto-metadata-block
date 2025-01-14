@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-01-13T08:30:58.645Z\n"
+"POT-Creation-Date: 2025-01-14T11:12:29.706Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -38,6 +38,16 @@ msgstr ""
 msgid "Make the table compact"
 msgstr ""
 
+#. Default: "Metadata"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Metadata"
+msgstr ""
+
+#. Default: "Metadata Section"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Metadata Section"
+msgstr ""
+
 #. Default: "No fields selected"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "No fields selected"
@@ -46,6 +56,11 @@ msgstr ""
 #. Default: "Reduce complexity"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "Reduce complexity"
+msgstr ""
+
+#. Default: "Simple list"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Simple list"
 msgstr ""
 
 #. Default: "Stripe alternate rows with color"
@@ -66,11 +81,6 @@ msgstr ""
 #. Default: "Hide in view page?"
 #: components/manage/Blocks/MetadataSection/i18n
 msgid "hideInView"
-msgstr ""
-
-#. Default: "Metadata section"
-#: components/manage/Blocks/MetadataSection/i18n
-msgid "metadataSection"
 msgstr ""
 
 #. Default: "Select metadata"
