@@ -38,8 +38,8 @@ const messages = defineMessages({
     defaultMessage: 'Fields',
   },
   metadataSection: {
-    id: 'metadataSection',
-    defaultMessage: 'Metadata section',
+    id: 'Metadata Section',
+    defaultMessage: 'Metadata Section',
   },
   field: {
     id: 'field',
@@ -56,7 +56,15 @@ const messages = defineMessages({
   noFieldsSelected: {
     id: 'No fields selected',
     defaultMessage: 'No fields selected',
-  }
+  },
+  metadata: {
+    id: 'Metadata',
+    defaultMessage: 'Metadata',
+  },
+  simpleList: {
+    id: 'Simple list',
+    defaultMessage: 'Simple list',
+  },
 });
 
 export default messages;
