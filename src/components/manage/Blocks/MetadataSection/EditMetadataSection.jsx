@@ -2,7 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
 import { BlockDataForm, Field, SidebarPortal } from '@plone/volto/components';
-import { useIntl } from 'react-intl';
+import { injectIntl, useIntl } from 'react-intl';
 import MetadataSectionSchema from './schema';
 import '@eeacms/volto-metadata-block/less/editor.less';
 import messages from './i18n';
@@ -44,7 +44,9 @@ const EditMetadataSectionBlock = (props) => {
       </SidebarPortal>
 
       <fieldset>
-        <legend aria-hidden="true">{data.title || intl.formatMessage(messages.metadataSection)}</legend>
+        <legend aria-hidden="true">
+          {data.title || intl.formatMessage(messages.metadataSection)}
+        </legend>
         {data.fields?.length
           ? data.fields.map((value) => {
               const { id: metadata_id } = value?.field || {};
@@ -76,4 +78,4 @@ const EditMetadataSectionBlock = (props) => {
   );
 };
 
-export default EditMetadataSectionBlock;
+export default injectIntl(EditMetadataSectionBlock);
