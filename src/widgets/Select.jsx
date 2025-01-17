@@ -9,8 +9,8 @@ const messages = defineMessages({
   selectMetadata: {
     id: 'selectMetadata',
     defaultMessage: 'Select metadata',
-  }
-})
+  },
+});
 
 export const SelectMetadata = (props) => {
   const intl = useIntl();
