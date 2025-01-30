@@ -11,37 +11,87 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. Default: "Default"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Default
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
+#. Default: "Divide each row into separate cells"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Divide each row into separate cells
 msgid "Divide each row into separate cells"
-msgstr ""
+msgstr "Jede Zeile in einzelne Zellen unterteilen"
 
+#. Default: "Fields"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Fixed width table cells
+msgid "Fields"
+msgstr "Felder"
+
+#. Default: "Fixed width table cells"
+#: components/manage/Blocks/MetadataSection/i18n
 msgid "Fixed width table cells"
-msgstr ""
+msgstr "Tabellenzellen mit fester Breite"
 
+#. Default: "Make the table compact"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Make the table compact
 msgid "Make the table compact"
-msgstr ""
+msgstr "Die Tabelle kompakt gestalten"
 
+#. Default: "Metadata"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Reduce complexity
+msgid "Metadata"
+msgstr "Metadaten"
+
+#. Default: "Metadata Section"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "Metadata Section"
+msgstr "Metadaten-Abschnitt"
+
+#. Default: "No fields selected"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "No fields selected"
+msgstr "Keine Felder ausgewählt"
+
+#. Default: "Reduce complexity"
+#: components/manage/Blocks/MetadataSection/i18n
 msgid "Reduce complexity"
-msgstr ""
+msgstr "Reduktion der Komplexität"
 
+#. Default: "Simple list"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Stripe alternate rows with color
+msgid "Simple list"
+msgstr "Einfache Liste"
+
+#. Default: "Stripe alternate rows with color"
+#: components/manage/Blocks/MetadataSection/i18n
 msgid "Stripe alternate rows with color"
-msgstr ""
+msgstr "Reihen abwechselnd mit Farbe markieren"
 
+#. Default: "Table color inverted"
 #: components/manage/Blocks/MetadataSection/i18n
-# defaultMessage: Table color inverted
 msgid "Table color inverted"
-msgstr ""
+msgstr "Farbe der Tabelle umkehren"
+
+#. Default: "Field"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "field"
+msgstr "Feld"
+
+#. Default: "Hide in view page?"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "hideInView"
+msgstr "In der Ansichtsseite ausblenden?"
+
+#. Default: "Select metadata"
+#: widgets/Select
+msgid "selectMetadata"
+msgstr "Metadaten auswählen"
+
+#. Default: "Show label?"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "showLabel"
+msgstr "Label anzeigen?"
+
+#. Default: "Table Style"
+#: components/manage/Blocks/MetadataSection/i18n
+msgid "tableStyle"
+msgstr "Aussehen"

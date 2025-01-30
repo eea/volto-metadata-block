@@ -1,55 +1,55 @@
 import messages from './i18n';
 
-const FieldSchema = {
-  title: 'Field',
+const FieldSchema = (intl) => ({
+  title: intl.formatMessage(messages.field),
   fieldsets: [
     {
       id: 'default',
-      title: 'Default',
+      title: intl.formatMessage(messages.defaultFieldset),
       fields: ['field', 'showLabel', 'hideInView'],
     },
   ],
   properties: {
     field: {
-      title: 'Field',
+      title: intl.formatMessage(messages.field),
       widget: 'select_metadata_field',
     },
     showLabel: {
-      title: 'Show label?',
+      title: intl.formatMessage(messages.showLabel),
       type: 'boolean',
     },
     hideInView: {
-      title: 'Hide in view page?',
+      title: intl.formatMessage(messages.hideInView),
       type: 'boolean',
     },
   },
   required: ['field'],
-};
+});
 
-const MetadataSectionSchema = {
-  title: 'Metadata section',
+const MetadataSectionSchema = (intl) => ({
+  title: intl.formatMessage(messages.metadataSection),
 
   fieldsets: [
     {
       id: 'default',
-      title: 'Default',
+      title: intl.formatMessage(messages.defaultFieldset),
       fields: ['fields'],
     },
   ],
 
   properties: {
     fields: {
-      title: 'Fields',
-      schema: FieldSchema,
+      title: intl.formatMessage(messages.fields),
+      schema: FieldSchema(intl),
       widget: 'object_list',
     },
   },
 
   required: ['fields'],
-};
+});
 
 export const TableSchema = ({ intl }) => ({
-  title: 'Table style',
+  title: intl.formatMessage(messages.tableStyle),
 
   fieldsets: [
     {
