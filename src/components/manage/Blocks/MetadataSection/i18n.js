@@ -29,6 +29,42 @@ const messages = defineMessages({
     id: 'Default',
     defaultMessage: 'Default',
   },
+  tableStyle: {
+    id: 'tableStyle',
+    defaultMessage: 'Table Style',
+  },
+  fields: {
+    id: 'Fields',
+    defaultMessage: 'Fields',
+  },
+  metadataSection: {
+    id: 'Metadata Section',
+    defaultMessage: 'Metadata Section',
+  },
+  field: {
+    id: 'field',
+    defaultMessage: 'Field',
+  },
+  showLabel: {
+    id: 'showLabel',
+    defaultMessage: 'Show label?',
+  },
+  hideInView: {
+    id: 'hideInView',
+    defaultMessage: 'Hide in view page?',
+  },
+  noFieldsSelected: {
+    id: 'No fields selected',
+    defaultMessage: 'No fields selected',
+  },
+  metadata: {
+    id: 'Metadata',
+    defaultMessage: 'Metadata',
+  },
+  simpleList: {
+    id: 'Simple list',
+    defaultMessage: 'Simple list',
+  },
 });
 
 export default messages;
