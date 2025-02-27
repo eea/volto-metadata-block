@@ -14,8 +14,8 @@ const ViewMetadataBlock = (props) => {
 
   let metadata_element = {
     ...initialFormData,
-    ...(metadata || {}),
-    ...(properties || {}),
+    ...properties,
+    ...metadata,
   };
 
   metadata_element = useMappedTokens(metadata_element);
