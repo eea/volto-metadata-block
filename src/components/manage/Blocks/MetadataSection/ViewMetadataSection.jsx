@@ -1,10 +1,10 @@
-import React from 'react';
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import { Table } from 'semantic-ui-react';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
 import { isEmpty } from 'lodash';
 import { withBlockExtensions } from '@plone/volto/helpers';
+import { useMappedTokens } from '../useMappedTokens';
 import '@eeacms/volto-metadata-block/less/public.less';
 
 function isEmptyWithNumberCheck(value) {
@@ -19,8 +19,16 @@ function isEmptyWithNumberCheck(value) {
 const Field = (props) => {
   const { data, properties = {}, metadata = {}, showLabel } = props;
   const { views } = config.widgets;
+
   const initialFormData = useSelector((state) => state?.content?.data || {});
-  let metadata_element = { ...initialFormData, ...properties, ...metadata };
+
+  let metadata_element = {
+    ...initialFormData,
+    ...(metadata || {}),
+    ...(properties || {}),
+  };
+
+  metadata_element = useMappedTokens(metadata_element);
 
   if (!data?.id) {
     return '';
