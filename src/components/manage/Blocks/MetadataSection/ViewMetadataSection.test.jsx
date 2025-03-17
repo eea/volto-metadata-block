@@ -12,7 +12,8 @@ const mockStore = {
   getState: () => ({
     content: {
       data: {
-        title: 'Test Title',
+        field1: 'Field1 Value',
+        field2: 'Field2 Value',
       },
     },
   }),
@@ -20,9 +21,16 @@ const mockStore = {
   dispatch: jest.fn(),
 };
 
+jest.mock('../useMappedTokens', () => ({
+  useMappedTokens: (data) => data,
+}));
+
 config.widgets = {
   views: {
-    getWidget: () => () => <div>Widget Component</div>,
+    getWidget:
+      () =>
+      ({ value, className }) => <div className={className}>{value}</div>,
+    default: ({ value, className }) => <div className={className}>{value}</div>,
   },
 };
 
@@ -46,57 +54,27 @@ describe('MetadataSectionListingView', () => {
           showLabel: true,
           hideInView: false,
         },
-        {
-          field: {
-            id: 'hidden',
-            title: 'Hidden',
-          },
-          showLabel: true,
-          hideInView: true,
-        },
       ],
     };
 
-    const { container } = render(
+    render(
       <Provider store={mockStore}>
         <MetadataSectionListingView data={data} />
       </Provider>,
     );
 
-    const field1Label = container.querySelector('label.block.metadata.field1');
-    expect(field1Label).toHaveTextContent('Title field1');
-    const field2Label = container.querySelector('label.block.metadata.field2');
-    expect(field2Label).toHaveTextContent('Title field2');
+    expect(screen.getByText('Title field1')).toBeInTheDocument();
+    expect(screen.getByText('Field1 Value')).toBeInTheDocument();
 
-    const field1Widget = container.querySelector('div');
-    expect(field1Widget).toHaveTextContent('Widget Component');
-    const field2Widget = container.querySelector('div');
-    expect(field2Widget).toHaveTextContent('Widget Component');
+    expect(screen.getByText('Title field2')).toBeInTheDocument();
+    expect(screen.getByText('Field2 Value')).toBeInTheDocument();
   });
 });
 
 describe('MetadataSectionTableView', () => {
-  it('renders table with fields correctly', () => {
+  it('does not render if no visible fields are present', () => {
     const data = {
-      table: {
-        fixed: false,
-        compact: true,
-        basic: false,
-        celled: true,
-        inverted: false,
-        striped: true,
-      },
       fields: [
-        {
-          field: { id: 'field1', title: 'Title field1' },
-          showLabel: true,
-          hideInView: false,
-        },
-        {
-          field: { id: 'field2', title: 'Title field2' },
-          showLabel: true,
-          hideInView: false,
-        },
         {
           field: { id: 'hidden', title: 'Hidden' },
           showLabel: true,
@@ -105,13 +83,12 @@ describe('MetadataSectionTableView', () => {
       ],
     };
 
-    render(
+    const { container } = render(
       <Provider store={mockStore}>
         <MetadataSectionTableView data={data} />
       </Provider>,
     );
 
-    const table = screen.getByRole('table');
-    expect(table).toHaveClass('ui celled striped compact table');
+    expect(container.innerHTML).toBe('');
   });
 });
