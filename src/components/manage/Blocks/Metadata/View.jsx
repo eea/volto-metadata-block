@@ -35,7 +35,7 @@ const ViewMetadataBlock = (props) => {
   const className = 'block metadata ' + data.id;
   return (
     <ErrorBoundary name={data.id}>
-      <Widget value={output} className={className} />
+      <Widget value={output} content={metadata_element} className={className} />
     </ErrorBoundary>
   );
 };
