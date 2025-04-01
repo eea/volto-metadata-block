@@ -55,7 +55,12 @@ const Field = (props) => {
       ) : (
         ''
       )}
-      <Widget value={output} className={className} id={`metadata-${data.id}`} />
+      <Widget
+        value={output}
+        content={metadata_element}
+        className={className}
+        id={`metadata-${data.id}`}
+      />
     </ErrorBoundary>
   );
 };
