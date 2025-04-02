@@ -23,6 +23,8 @@ const Field = (props) => {
   const intl = useIntl();
 
   const initialFormData = useSelector((state) => state?.content?.data || {});
+  const dataTitle = data?.title;
+  const label = intl.formatMessage({ id: dataTitle, message: dataTitle });
 
   let metadata_element = {
     ...initialFormData,
@@ -48,8 +50,6 @@ const Field = (props) => {
   }
 
   let className = 'block metadata ' + data.id;
-  const dataTitle = data?.title;
-  const label = intl.formatMessage({ id: dataTitle, message: dataTitle });
   return (
     <ErrorBoundary name={data.id}>
       {showLabel ? (

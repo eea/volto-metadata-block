@@ -7,6 +7,7 @@ import {
 } from './ViewMetadataSection';
 import config from '@plone/volto/registry';
 import '@testing-library/jest-dom/extend-expect';
+import { IntlProvider } from 'react-intl';
 
 const mockStore = {
   getState: () => ({
@@ -27,9 +28,9 @@ jest.mock('../useMappedTokens', () => ({
 
 config.widgets = {
   views: {
-    getWidget:
-      () =>
-      ({ value, className }) => <div className={className}>{value}</div>,
+    getWidget: () => ({ value, className }) => (
+      <div className={className}>{value}</div>
+    ),
     default: ({ value, className }) => <div className={className}>{value}</div>,
   },
 };
@@ -59,7 +60,9 @@ describe('MetadataSectionListingView', () => {
 
     render(
       <Provider store={mockStore}>
-        <MetadataSectionListingView data={data} />
+        <IntlProvider locale="en">
+          <MetadataSectionTableView data={data} />
+        </IntlProvider>
       </Provider>,
     );
 
@@ -85,7 +88,9 @@ describe('MetadataSectionTableView', () => {
 
     const { container } = render(
       <Provider store={mockStore}>
-        <MetadataSectionTableView data={data} />
+        <IntlProvider locale="en">
+          <MetadataSectionTableView data={data} />
+        </IntlProvider>
       </Provider>,
     );
 
