@@ -60,8 +60,8 @@ describe('MetadataSectionListingView', () => {
 
     render(
       <Provider store={mockStore}>
-        <IntlProvider locale="en">
-          <MetadataSectionTableView data={data} />
+        <IntlProvider locale="en" messages={{}}>
+          <MetadataSectionListingView data={data} />
         </IntlProvider>
       </Provider>,
     );
@@ -88,7 +88,7 @@ describe('MetadataSectionTableView', () => {
 
     const { container } = render(
       <Provider store={mockStore}>
-        <IntlProvider locale="en">
+        <IntlProvider locale="en" messages={{}}>
           <MetadataSectionTableView data={data} />
         </IntlProvider>
       </Provider>,
