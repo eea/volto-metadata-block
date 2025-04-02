@@ -6,6 +6,7 @@ import { isEmpty } from 'lodash';
 import { withBlockExtensions } from '@plone/volto/helpers';
 import { useMappedTokens } from '../useMappedTokens';
 import '@eeacms/volto-metadata-block/less/public.less';
+import { useIntl, FormattedMessage } from 'react-intl';
 
 function isEmptyWithNumberCheck(value) {
   // Check if the value is a number and is not NaN
@@ -46,11 +47,14 @@ const Field = (props) => {
   }
 
   let className = 'block metadata ' + data.id;
+  const dataTitle = data?.title;
+  const intl = useIntl();
+  const label = intl.formatMessage({ id: dataTitle, message: dataTitle });
   return (
     <ErrorBoundary name={data.id}>
       {showLabel ? (
         <label htmlFor={`metadata-${data.id}`} className={className}>
-          {data?.title}
+          {label}
         </label>
       ) : (
         ''
