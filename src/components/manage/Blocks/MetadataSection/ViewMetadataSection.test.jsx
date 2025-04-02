@@ -28,9 +28,9 @@ jest.mock('../useMappedTokens', () => ({
 
 config.widgets = {
   views: {
-    getWidget: () => ({ value, className }) => (
-      <div className={className}>{value}</div>
-    ),
+    getWidget:
+      () =>
+      ({ value, className }) => <div className={className}>{value}</div>,
     default: ({ value, className }) => <div className={className}>{value}</div>,
   },
 };
