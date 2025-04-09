@@ -6,7 +6,7 @@ import { mapTokensToLabels } from './utils';
 
 const vocabulary = 'plone.app.vocabularies.Users';
 
-export const useMappedTokens = (metadata_element) => {
+export const useMappedTokens = (metadata_element, enabled = false) => {
   const dispatch = useDispatch();
 
   const users = useSelector(
@@ -22,7 +22,7 @@ export const useMappedTokens = (metadata_element) => {
   );
 
   useEffect(() => {
-    if (tokens.length > 0 && users.length === 0) {
+    if (tokens.length > 0 && users.length === 0 && enabled) {
       dispatch(
         getVocabularyTokenTitle({
           vocabNameOrURL: vocabulary,

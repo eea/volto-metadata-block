@@ -18,7 +18,8 @@ const ViewMetadataBlock = (props) => {
     ...(metadata || {}),
   };
 
-  metadata_element = useMappedTokens(metadata_element);
+  const triggerFetch = data?.id === 'creators' || data?.id === 'contributors';
+  metadata_element = useMappedTokens(metadata_element, triggerFetch);
 
   if (!data?.id) return '';
 
