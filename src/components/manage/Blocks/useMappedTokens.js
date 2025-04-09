@@ -7,6 +7,7 @@ import { mapTokensToLabels } from './utils';
 const vocabulary = 'plone.app.vocabularies.Users';
 
 export const useMappedTokens = (metadata_element, enabled = false) => {
+  console.log('here metadata_element', metadata_element);
   const dispatch = useDispatch();
 
   const users = useSelector(
@@ -31,6 +32,7 @@ export const useMappedTokens = (metadata_element, enabled = false) => {
         }),
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, tokens, users.length]);
 
   if (metadata_element.contributors?.length > 0) {
