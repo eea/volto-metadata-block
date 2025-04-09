@@ -7,7 +7,6 @@ import { mapTokensToLabels } from './utils';
 const vocabulary = 'plone.app.vocabularies.Users';
 
 export const useMappedTokens = (metadata_element, enabled = false) => {
-  console.log('here metadata_element', metadata_element);
   const dispatch = useDispatch();
 
   const users = useSelector(
