@@ -1,16 +1,17 @@
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
-import { useMappedTokens } from '../useMappedTokens';
 import '@eeacms/volto-metadata-block/less/public.less';
 
 const ViewMetadataBlock = (props) => {
   const { data } = props.data;
+  console.log('here data', data);
   const { views } = config.widgets;
 
   const initialFormData = useSelector((state) => state?.content?.data || {});
 
   const { properties, metadata } = props;
+  console.log('here properties and metadata', properties, metadata);
 
   let metadata_element = {
     ...initialFormData,
@@ -18,11 +19,14 @@ const ViewMetadataBlock = (props) => {
     ...(metadata || {}),
   };
 
-  metadata_element = useMappedTokens(metadata_element);
-
   if (!data?.id) return '';
-
   let output = metadata_element[data.id];
+  if (data?.id === 'creators') {
+    output = metadata_element['creators_fullname'];
+  }
+  if (data?.id === 'contributors') {
+    output = metadata_element['contributors_fullname'];
+  }
   let Widget = views?.getWidget(data);
 
   if (!output && props.data.placeholder) {
@@ -31,6 +35,9 @@ const ViewMetadataBlock = (props) => {
   }
 
   if (!Widget) return '';
+
+  console.log('here output', output);
+  console.log('here metadata_element', metadata_element);
 
   const className = 'block metadata ' + data.id;
   return (
