@@ -36,6 +36,14 @@ const Field = (props) => {
   }
 
   let output = metadata_element[data.id];
+
+  if (data?.id === 'creators') {
+    output = metadata_element['creators_fullname'];
+  }
+  if (data?.id === 'contributors') {
+    output = metadata_element['contributors_fullname'];
+  }
+
   let Widget = views?.getWidget(data);
   if (!output && props.data.placeholder) {
     Widget = views?.default;

@@ -5,13 +5,11 @@ import '@eeacms/volto-metadata-block/less/public.less';
 
 const ViewMetadataBlock = (props) => {
   const { data } = props.data;
-  console.log('here data', data);
   const { views } = config.widgets;
 
   const initialFormData = useSelector((state) => state?.content?.data || {});
 
   const { properties, metadata } = props;
-  console.log('here properties and metadata', properties, metadata);
 
   let metadata_element = {
     ...initialFormData,
@@ -35,9 +33,6 @@ const ViewMetadataBlock = (props) => {
   }
 
   if (!Widget) return '';
-
-  console.log('here output', output);
-  console.log('here metadata_element', metadata_element);
 
   const className = 'block metadata ' + data.id;
   return (

@@ -22,10 +22,6 @@ const mockStore = {
   dispatch: jest.fn(),
 };
 
-jest.mock('../useMappedTokens', () => ({
-  useMappedTokens: (data) => data,
-}));
-
 config.widgets = {
   views: {
     getWidget:
