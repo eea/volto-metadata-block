@@ -46,10 +46,6 @@ jest.mock('@plone/volto/registry', () => ({
   },
 }));
 
-jest.mock('../useMappedTokens', () => ({
-  useMappedTokens: (data) => data,
-}));
-
 describe('ViewMetadataBlock', () => {
   it('renders correctly with widget output', () => {
     render(

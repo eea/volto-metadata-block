@@ -4,7 +4,6 @@ import { Table } from 'semantic-ui-react';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
 import { isEmpty } from 'lodash';
 import { withBlockExtensions } from '@plone/volto/helpers';
-import { useMappedTokens } from '../useMappedTokens';
 import '@eeacms/volto-metadata-block/less/public.less';
 import { useIntl } from 'react-intl';
 
@@ -32,13 +31,12 @@ const Field = (props) => {
     ...(metadata || {}),
   };
 
-  metadata_element = useMappedTokens(metadata_element);
-
   if (!data?.id) {
     return '';
   }
 
   let output = metadata_element[data.id];
+
   let Widget = views?.getWidget(data);
   if (!output && props.data.placeholder) {
     Widget = views?.default;
