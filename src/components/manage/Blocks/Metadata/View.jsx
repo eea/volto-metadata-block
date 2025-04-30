@@ -1,7 +1,6 @@
 import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
-import { useMappedTokens } from '../useMappedTokens';
 import '@eeacms/volto-metadata-block/less/public.less';
 
 const ViewMetadataBlock = (props) => {
@@ -18,10 +17,7 @@ const ViewMetadataBlock = (props) => {
     ...(metadata || {}),
   };
 
-  metadata_element = useMappedTokens(metadata_element);
-
   if (!data?.id) return '';
-
   let output = metadata_element[data.id];
   let Widget = views?.getWidget(data);
 
