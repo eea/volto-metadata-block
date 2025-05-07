@@ -19,6 +19,9 @@ const ViewMetadataBlock = (props) => {
 
   if (!data?.id) return '';
   let output = metadata_element[data.id];
+  console.log('metadata_element', metadata_element);
+  console.log('data', data);
+  console.log('views', views);
   let Widget = views?.getWidget(data);
 
   if (!output && props.data.placeholder) {
@@ -28,7 +31,10 @@ const ViewMetadataBlock = (props) => {
 
   if (!Widget) return '';
 
-  const className = 'block metadata ' + data.id;
+  // add react-select token values as class value in order to style it better
+  const token = data.widget === 'array' ? output?.[0]?.token : '';
+
+  const className = 'block metadata ' + data.id + (token ? ` ${token}` : '');
   return (
     <ErrorBoundary name={data.id}>
       <Widget value={output} content={metadata_element} className={className} />
