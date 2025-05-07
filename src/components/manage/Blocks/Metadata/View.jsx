@@ -19,9 +19,6 @@ const ViewMetadataBlock = (props) => {
 
   if (!data?.id) return '';
   let output = metadata_element[data.id];
-  console.log('metadata_element', metadata_element);
-  console.log('data', data);
-  console.log('views', views);
   let Widget = views?.getWidget(data);
 
   if (!output && props.data.placeholder) {
