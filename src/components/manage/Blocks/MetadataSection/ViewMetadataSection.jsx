@@ -43,7 +43,9 @@ const Field = (props) => {
     output = props.data.placeholder;
   }
 
-  if (!Widget) {
+  const hasValue = !isEmptyWithNumberCheck(output);
+
+  if (!Widget || !hasValue) {
     return '';
   }
 
@@ -104,7 +106,7 @@ export const MetadataSectionTableView = (props) => {
       striped={table.striped}
     >
       <Table.Body>
-        {showFields.map(({ field, showLabel }, i) => {
+        {showFields.map(({ field }, i) => {
           const hasValue = !isEmptyWithNumberCheck(metadata_element[field?.id]);
 
           return hasValue ? (
