@@ -6,7 +6,7 @@ import {
   MetadataSectionTableView,
 } from './ViewMetadataSection';
 import config from '@plone/volto/registry';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
 
 const mockStore = {

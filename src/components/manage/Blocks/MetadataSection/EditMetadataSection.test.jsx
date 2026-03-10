@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import EditMetadataSectionBlock from './EditMetadataSection';
 import MetadataSectionSchema from './schema';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 const mockStore = configureStore();
 
