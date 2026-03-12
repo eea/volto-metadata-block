@@ -31,6 +31,9 @@ const store = mockStore({
     locale: 'en',
     messages: {},
   },
+  schema: {
+    schema: {},
+  },
 });
 
 describe('EditMetadataSection', () => {

@@ -25,6 +25,10 @@ module.exports = {
     '@plone/volto-quanta/(.*)$': '<rootDir>/src/addons/volto-quanta/src/$1',
     '@eeacms/search/(.*)$': '<rootDir>/src/addons/volto-searchlib/searchlib/$1',
     '@eeacms/search': '<rootDir>/src/addons/volto-searchlib/searchlib',
+    '@eeacms/volto-metadata-block/(.*)$':
+      '<rootDir>/src/addons/volto-metadata-block/src/$1',
+    '@eeacms/volto-metadata-block$':
+      '<rootDir>/src/addons/volto-metadata-block/src',
     '@eeacms/(.*?)/(.*)$': '<rootDir>/node_modules/@eeacms/$1/src/$2',
     '@plone/volto-slate$': voltoSlatePath,
     '@plone/volto-slate/(.*)$': `${voltoSlatePath}/$1`,
