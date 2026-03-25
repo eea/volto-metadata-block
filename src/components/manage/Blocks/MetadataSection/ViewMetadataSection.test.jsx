@@ -6,20 +6,27 @@ import {
   MetadataSectionTableView,
 } from './ViewMetadataSection';
 import config from '@plone/volto/registry';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
 
-const mockStore = {
-  getState: () => ({
-    content: {
-      data: {
-        field1: 'Field1 Value',
-        field2: 'Field2 Value',
-      },
+const mockState = {
+  content: {
+    data: {
+      field1: 'Field1 Value',
+      field2: 'Field2 Value',
     },
-  }),
-  subscribe: () => {},
+  },
+};
+
+const mockStore = {
+  getState: () => mockState,
+  subscribe: () => () => {},
   dispatch: jest.fn(),
+};
+
+const messages = {
+  'Title field1': 'Title field1',
+  'Title field2': 'Title field2',
 };
 
 config.widgets = {
@@ -56,7 +63,7 @@ describe('MetadataSectionListingView', () => {
 
     render(
       <Provider store={mockStore}>
-        <IntlProvider locale="en" messages={{}}>
+        <IntlProvider locale="en" messages={messages}>
           <MetadataSectionListingView data={data} />
         </IntlProvider>
       </Provider>,
@@ -84,7 +91,7 @@ describe('MetadataSectionTableView', () => {
 
     const { container } = render(
       <Provider store={mockStore}>
-        <IntlProvider locale="en" messages={{}}>
+        <IntlProvider locale="en" messages={messages}>
           <MetadataSectionTableView data={data} />
         </IntlProvider>
       </Provider>,
