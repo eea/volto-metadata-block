@@ -2,10 +2,12 @@ import config from '@plone/volto/registry';
 import { useSelector } from 'react-redux';
 import { Table } from 'semantic-ui-react';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
-import { isEmpty } from 'lodash';
-import { withBlockExtensions } from '@plone/volto/helpers';
+import isEmpty from 'lodash/isEmpty';
+import { withBlockExtensions } from '@plone/volto/helpers//Extensions';
 import '@eeacms/volto-metadata-block/less/public.less';
 import { useIntl } from 'react-intl';
+
+const EMPTY_OBJECT = Object.freeze({});
 
 function isEmptyWithNumberCheck(value) {
   // Check if the value is a number and is not NaN
@@ -21,7 +23,9 @@ const Field = (props) => {
   const { views } = config.widgets;
   const intl = useIntl();
 
-  const initialFormData = useSelector((state) => state?.content?.data || {});
+  const initialFormData = useSelector(
+    (state) => state?.content?.data ?? EMPTY_OBJECT,
+  );
   const dataTitle = data?.title;
   const label = intl.formatMessage({ id: dataTitle, message: dataTitle });
 
@@ -92,7 +96,9 @@ export const MetadataSectionTableView = (props) => {
   const { data = {}, properties = {}, metadata = {} } = props;
   const { table = {}, fields = [] } = data;
 
-  const initialFormData = useSelector((state) => state?.content?.data || {});
+  const initialFormData = useSelector(
+    (state) => state?.content?.data ?? EMPTY_OBJECT,
+  );
   let metadata_element = { ...initialFormData, ...properties, ...metadata };
   const showFields = fields.filter(({ hideInView }) => !hideInView);
 

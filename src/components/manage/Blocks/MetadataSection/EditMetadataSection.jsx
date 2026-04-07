@@ -1,11 +1,14 @@
 import React from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
-import { BlockDataForm, Field, SidebarPortal } from '@plone/volto/components';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
+import { BlockDataForm, Field } from '@plone/volto/components/manage/Form';
 import { injectIntl, useIntl } from 'react-intl';
 import MetadataSectionSchema from './schema';
 import '@eeacms/volto-metadata-block/less/editor.less';
 import messages from './i18n';
+
+const EMPTY_OBJECT = Object.freeze({});
 
 const EditMetadataSectionBlock = (props) => {
   const intl = useIntl();
@@ -19,7 +22,7 @@ const EditMetadataSectionBlock = (props) => {
     onChangeField,
     errors,
   } = props;
-  const schema = useSelector((state) => state?.schema?.schema || {});
+  const schema = useSelector((state) => state?.schema?.schema ?? EMPTY_OBJECT);
   let metadata_element = {};
   metadata_element = metadata ? { ...metadata } : { ...properties };
 

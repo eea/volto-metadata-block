@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
-import { Field } from '@plone/volto/components';
+import { Field } from '@plone/volto/components/manage/Form';
 import { SelectMetadataBlock } from '@eeacms/volto-metadata-block/widgets';
 import '@eeacms/volto-metadata-block/less/editor.less';
+
+const EMPTY_OBJECT = Object.freeze({});
 
 const EditMetadataBlock = (props) => {
   const {
@@ -18,9 +20,7 @@ const EditMetadataBlock = (props) => {
     errors,
   } = props;
   const [metadata_id, setMetadata_id] = useState(data?.data?.id);
-  const schema = useSelector((state) => {
-    return state?.schema?.schema || {};
-  });
+  const schema = useSelector((state) => state?.schema?.schema ?? EMPTY_OBJECT);
   let metadata_element = {};
   metadata_element = metadata ? { ...metadata } : { ...properties };
 

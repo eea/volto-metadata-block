@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import { getWidget } from '@eeacms/volto-metadata-block/utils';
-import { Field } from '@plone/volto/components';
+import { Field } from '@plone/volto/components/manage/Form';
 import { defineMessages, useIntl } from 'react-intl';
 
 const messages = defineMessages({
@@ -12,11 +12,13 @@ const messages = defineMessages({
   },
 });
 
+const EMPTY_OBJECT = Object.freeze({});
+
 export const SelectMetadata = (props) => {
   const intl = useIntl();
   // Get Object metadata from global state
   const properties = useSelector(
-    (state) => state?.schema?.schema?.properties || {},
+    (state) => state?.schema?.schema?.properties ?? EMPTY_OBJECT,
   );
   const vocabulary = Object.keys(properties)
     .map((key) => {
@@ -47,7 +49,7 @@ export const SelectMetadataBlock = SelectMetadata;
 export const SelectMetadataField = (props) => {
   const { id, value = null, onChange, title, block } = props;
   const properties = useSelector(
-    (state) => state?.schema?.schema?.properties || {},
+    (state) => state?.schema?.schema?.properties ?? EMPTY_OBJECT,
   );
 
   const fields = Object.assign(
