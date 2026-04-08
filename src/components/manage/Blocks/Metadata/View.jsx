@@ -3,11 +3,15 @@ import { useSelector } from 'react-redux';
 import { ErrorBoundary } from '@eeacms/volto-metadata-block/widgets';
 import '@eeacms/volto-metadata-block/less/public.less';
 
+const EMPTY_OBJECT = Object.freeze({});
+
 const ViewMetadataBlock = (props) => {
   const { data } = props.data;
   const { views } = config.widgets;
 
-  const initialFormData = useSelector((state) => state?.content?.data || {});
+  const initialFormData = useSelector(
+    (state) => state?.content?.data ?? EMPTY_OBJECT,
+  );
 
   const { properties, metadata } = props;
 

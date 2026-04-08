@@ -3,26 +3,32 @@ import { Provider } from 'react-intl-redux';
 import { render, screen } from '@testing-library/react';
 import configureStore from 'redux-mock-store';
 import EditMetadataSectionBlock from './EditMetadataSection';
-import MetadataSectionSchema from './schema';
 import '@testing-library/jest-dom';
 
 const mockStore = configureStore();
 
-jest.mock('@plone/volto/components', () => ({
-  BlockDataForm: ({ title, children }) => (
+jest.mock('@plone/volto/components/manage/Form/BlockDataForm', () => {
+  return ({ title, children }) => (
     <div>
       <h1>{title}</h1>
       {children}
     </div>
-  ),
-  SidebarPortal: ({ children }) => (
-    <div data-testid="mock-sidebar-portal">{children}</div>
-  ),
-  Field: ({ id, title }) => (
+  );
+});
+
+jest.mock('@plone/volto/components/manage/Form/Field', () => {
+  return ({ id, title }) => (
     <div className="mock-field">
       <label htmlFor={id}>{title}</label>
       <input id={id} />
     </div>
+  );
+});
+
+jest.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => ({
+  __esModule: true,
+  default: ({ children }) => (
+    <div data-testid="mock-sidebar-portal">{children}</div>
   ),
 }));
 
@@ -52,9 +58,9 @@ describe('EditMetadataSection', () => {
       </Provider>,
     );
 
-    const blockDataForm = screen
-      .getByRole('heading', { name: MetadataSectionSchema.title })
-      .closest('div');
-    expect(blockDataForm).toBeInTheDocument();
+    expect(screen.getByTestId('mock-sidebar-portal')).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: 'Metadata Section' }),
+    ).toBeInTheDocument();
   });
 });
