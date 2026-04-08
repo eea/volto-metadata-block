@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import { useSelector } from 'react-redux';
 import { getWidget } from '@eeacms/volto-metadata-block/utils';
-import { Field } from '@plone/volto/components/manage/Form';
+import Field from '@plone/volto/components/manage/Form/Field';
 import { defineMessages, useIntl } from 'react-intl';
 
 const messages = defineMessages({

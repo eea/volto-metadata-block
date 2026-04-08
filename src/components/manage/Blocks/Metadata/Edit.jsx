@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cx from 'classnames';
 import { useSelector } from 'react-redux';
-import { Field } from '@plone/volto/components/manage/Form';
+import Field from '@plone/volto/components/manage/Form/Field';
 import { SelectMetadataBlock } from '@eeacms/volto-metadata-block/widgets';
 import '@eeacms/volto-metadata-block/less/editor.less';
 
