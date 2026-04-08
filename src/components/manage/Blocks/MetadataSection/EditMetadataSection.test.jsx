@@ -7,20 +7,23 @@ import '@testing-library/jest-dom';
 
 const mockStore = configureStore();
 
-jest.mock('@plone/volto/components/manage/Form', () => ({
-  BlockDataForm: ({ title, children }) => (
+jest.mock('@plone/volto/components/manage/Form/BlockDataForm', () => {
+  return ({ title, children }) => (
     <div>
       <h1>{title}</h1>
       {children}
     </div>
-  ),
-  Field: ({ id, title }) => (
+  );
+});
+
+jest.mock('@plone/volto/components/manage/Form/Field', () => {
+  return ({ id, title }) => (
     <div className="mock-field">
       <label htmlFor={id}>{title}</label>
       <input id={id} />
     </div>
-  ),
-}));
+  );
+});
 
 jest.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => ({
   __esModule: true,
