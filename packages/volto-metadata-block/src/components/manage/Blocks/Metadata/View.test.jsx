@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import React from 'react';
 import { Provider } from 'react-intl-redux';
 import { render, screen } from '@testing-library/react';
@@ -33,7 +34,19 @@ const mockData = {
   },
 };
 
-jest.mock('@plone/volto/registry', () => ({
+vi.mock('@plone/volto/registry', () => ({
+  default: {
+    widgets: {
+      views: {
+        getWidget:
+          (data) =>
+          ({ value, className }) => <div className={className}>{value}</div>,
+        default: ({ value, className }) => (
+          <div className={className}>{value}</div>
+        ),
+      },
+    },
+  },
   widgets: {
     views: {
       getWidget:

@@ -1,0 +1,7 @@
+{
+  "title": "Metadata Block",
+  "frontend_addon_name": "volto-metadata-block",
+  "description": "Volto Metadata Block",
+  "volto_version": "19.3.0",
+  "__template__": "frontend_addon"
+}

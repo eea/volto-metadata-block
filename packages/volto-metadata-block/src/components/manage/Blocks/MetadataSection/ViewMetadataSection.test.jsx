@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render, screen } from '@testing-library/react';
@@ -21,7 +22,7 @@ const mockState = {
 const mockStore = {
   getState: () => mockState,
   subscribe: () => () => {},
-  dispatch: jest.fn(),
+  dispatch: vi.fn(),
 };
 
 const messages = {
