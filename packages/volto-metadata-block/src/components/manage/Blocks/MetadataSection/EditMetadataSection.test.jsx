@@ -1,3 +1,4 @@
+import { vi } from 'vitest';
 import React from 'react';
 import { Provider } from 'react-intl-redux';
 import { render, screen } from '@testing-library/react';
@@ -7,25 +8,29 @@ import '@testing-library/jest-dom';
 
 const mockStore = configureStore();
 
-jest.mock('@plone/volto/components/manage/Form/BlockDataForm', () => {
-  return ({ title, children }) => (
-    <div>
-      <h1>{title}</h1>
-      {children}
-    </div>
-  );
+vi.mock('@plone/volto/components/manage/Form/BlockDataForm', () => {
+  return {
+    default: ({ title, children }) => (
+      <div>
+        <h1>{title}</h1>
+        {children}
+      </div>
+    ),
+  };
 });
 
-jest.mock('@plone/volto/components/manage/Form/Field', () => {
-  return ({ id, title }) => (
-    <div className="mock-field">
-      <label htmlFor={id}>{title}</label>
-      <input id={id} />
-    </div>
-  );
+vi.mock('@plone/volto/components/manage/Form/Field', () => {
+  return {
+    default: ({ id, title }) => (
+      <div className="mock-field">
+        <label htmlFor={id}>{title}</label>
+        <input id={id} />
+      </div>
+    ),
+  };
 });
 
-jest.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => ({
+vi.mock('@plone/volto/components/manage/Sidebar/SidebarPortal', () => ({
   __esModule: true,
   default: ({ children }) => (
     <div data-testid="mock-sidebar-portal">{children}</div>
@@ -47,9 +52,9 @@ describe('EditMetadataSection', () => {
     selected: true,
     block: 'some-block',
     data: {},
-    onChangeBlock: jest.fn(),
+    onChangeBlock: vi.fn(),
     properties: {},
-    onChangeField: jest.fn(),
+    onChangeField: vi.fn(),
   };
   it('renders the block correctly', () => {
     render(
