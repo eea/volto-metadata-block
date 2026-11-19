@@ -14,6 +14,22 @@
 
 * [volto-slate-metadata-mentions](https://github.com/eea/volto-slate-metadata-mentions)
 
+## Upgrade
+
+### Upgrading to 10.x
+
+> This version requires `Volto 18` or `Volto 19` and Node.js 22.
+
+The blocks (`metadata`, `metadataSection`), their variations and the `select_metadata_field` widget keep the same ids and the same stored fields, so upgrading from 9.x on Volto 18 needs no content changes. The release adds Volto 19 support and moves the repository to the Volto 19 layout, where the published package lives in `packages/volto-metadata-block`.
+
+#### Breaking changes
+
+- **Node.js 22 or newer is required** (`engines.node >= 22`), 9.x declared no engine.
+- **React 18 is required.** The package declares `react` and `react-dom` as `^18.2.0` peers, 9.x declared no peers.
+- **The package no longer ships the Jest setup.** `jest-addon.config.js` and `jest.setup.js` were removed in favour of Vitest, so a Volto 18 project that still runs the Jest harness has to keep its own copy.
+
+The package no longer declares `razzle-plugin-scss`; Volto 18 and Volto 19 both ship their own SCSS plugin.
+
 ## Requirements
 
 ### Backend
